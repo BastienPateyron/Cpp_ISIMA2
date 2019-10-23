@@ -1,0 +1,39 @@
+#include <iostream>
+#include "Point.hpp"
+
+using namespace std;
+
+int main(int, char **)
+{
+   Point p;
+   
+   p.setX(15);
+   p.setY(15);
+   p.deplacerDe(5, 10);
+   cout << p.getX() << " , " << p.getY() << endl; // 20 , 25
+
+   p.deplacerVers(10,10);
+   cout << p.getX() << " , " << p.getY() << endl; // 10 , 10
+
+   return 0;
+}
+
+int Point::getX() {return x;}
+int Point::getY() {return y;}
+
+void Point::setX(int val)
+{
+   x = val;
+}
+
+void Point::deplacerDe(int x, int y)
+{
+   this->x += x;
+   this->y += y;
+}
+
+void Point::deplacerVers(int x, int y)
+{
+   this->x = x;
+   this->y = y;
+}

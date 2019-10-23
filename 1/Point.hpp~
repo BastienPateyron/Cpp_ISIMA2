@@ -1,0 +1,21 @@
+// Fichier point.hpp
+#pragma once
+
+class Point
+{
+   // Tout est prive par defaut
+
+   // Attributs //
+   int x;
+   int y;
+
+   
+   // Methodes //
+   public:
+      int   getX();
+      int   getY();
+      void  setX(int);
+      void  deplacerDe(int x, int y);	  // Definit nombre de pas dans chaque axe
+      void  deplacerVers(int x, int y);	  // Definit une nouvelle position 
+
+}; 
