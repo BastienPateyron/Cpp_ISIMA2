@@ -9,6 +9,8 @@ OBJ=$(addprefix build/,$(SRC:.cpp=.o))
 DEP=$(addprefix build/,$(SRC:.cpp=.d))
 
 all: $(OBJ)
+	@mkdir -p class
+	@mkdir -p header
 	$(CXX) -o $(EXE) $^ $(LDFLAGS)
 
 build/%.o: %.cpp

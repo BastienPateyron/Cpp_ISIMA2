@@ -1,7 +1,7 @@
-SRC=Cercle.cpp Forme.cpp Point.cpp Rectangle.cpp tests_catch.cpp main_catch.cpp
-#SRC=$(wildcard *.cpp)  
+
+SRC=$(class/ wildcard *.cpp)  
 CXX=g++
-EXE=cpp4
+EXE=prog.exe
 
 MACOS=
 #MACOS=-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
@@ -12,13 +12,18 @@ OBJ=$(addprefix build/,$(SRC:.cpp=.o))
 DEP=$(addprefix build/,$(SRC:.cpp=.d))
 
 all: $(OBJ)
+	@mkdir -p class
+	@mkdir -p header
+	[ ! -f *.cpp ] || mv *.cpp class
+	echo "Ok"
+	@mv *.hpp header
 	$(CXX) -o $(EXE) $^ $(LDFLAGS)
 
-build/%.o: %.cpp
+build/%.o: class/%.cpp
 	@mkdir -p build
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 clean:
-	rm -rf build core *.gch
+	rm -rf build core *.gch $(EXE)
 
 -include $(DEP)
