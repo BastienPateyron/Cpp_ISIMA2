@@ -1,23 +1,35 @@
-# SRC=main.cpp obj.cpp  #Version manuelle
-SRC=$(wildcard *.cpp)   # Version generique
+CLASSES=class
+HEADERS=header
+SRC=$(wildcard $(CLASSES)/*.cpp))
+CXX=g++
 EXE=prog.exe
 
-CXXFLAGS+=-Wall -Wextra -MMD -g -O2
-LDFLAGS= #-lSDL
+MACOS=
+#MACOS=-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
+CXXFLAGS+= -Wall -Wextra -I $(HEADERS) -MMD -g $(MACOS)
+LDFLAGS=$(MACOS)
 
-OBJ=$(addprefix build/,$(SRC:.cpp=.o))
-DEP=$(addprefix build/,$(SRC:.cpp=.d))
+OBJ=$(addprefix build/,$(notdir $(SRC:.cpp=.o)))
+# DEP=$(addprefix build/,$(SRC/class:.cpp=.d))
+DEP=$(wildcard header/*.hpp)
 
 all: $(OBJ)
-	@mkdir -p class
-	@mkdir -p header
+	@echo $(SRC)
+	@echo $(OBJ)
+	@echo all
+	@echo $(DEP)
 	$(CXX) -o $(EXE) $^ $(LDFLAGS)
-
-build/%.o: %.cpp
+	
+build/%.o: class/%.cpp
+	@echo build
 	@mkdir -p build
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-clean:
-	rm -rf build core *.gch
+prepare:
+	@mkdir -p class
+	@mkdir -p header
+	@[ ! -f *.cpp ] || mv *.cpp class
+	@[ ! -f *.hpp ] || mv *.hpp header
 
--include $(DEP)
+clean:
+	rm -rf build core *.gch $(EXE)
