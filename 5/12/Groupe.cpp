@@ -11,7 +11,7 @@ std::string Groupe::toString()
 {
    std::string retour  = "";
 
-   for (int i = 0; i < Groupe::nb_c; i++)
+   for (int i = 0; i < Groupe::nb; i++)
    {
       retour += (formes[i]->toString() + '\n');
    }
@@ -21,13 +21,6 @@ std::string Groupe::toString()
 
 void Groupe::ajouter(Forme * c)
 {
-   if(nb_c < Groupe::TAILLE - 1)
-   {
-      // c->ordre        = nb_c + nb_r; // nb_c + nb_r
-      formes[nb_c++] = c;
-   }
-   else
-   {
-      std::cout << "Taille insuffisante" << std::endl;
-   }
+   if(nb < Groupe::TAILLE - 1) { formes[nb++] = c; }
+   else                        { std::cout << "Taille insuffisante" << std::endl; }
 }

@@ -38,6 +38,7 @@ class Forme
       COULEURS            getCouleur() const;
       double              getLargeur() const;
       double              getHauteur() const;
+      void                afficher()   const;
       virtual std::string toString()   const;
 
       // Methodes a effet de bord

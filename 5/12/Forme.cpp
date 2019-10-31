@@ -24,22 +24,24 @@ Forme::Forme(double w, double h, Point p) : couleur(COULEURS::BLEU),
 
 Forme::~Forme() {}
 
-std::string Forme::toString() const
+
+
+// Methodes statiques / de classe
+int Forme::getId()       const { return id; }
+int Forme::prochainId()        { return nbFormes; }
+
+// Methodes const
+COULEURS    Forme::getCouleur()  const { return couleur; }
+double      Forme::getLargeur()  const { return w; }
+double      Forme::getHauteur()  const { return h; }
+void        Forme::afficher()    const { std::cout << this->toString() << std::endl; }
+std::string Forme::toString()    const
 {
    return std::to_string(point.getX()) + " " +
           std::to_string(point.getY()) + " " +
           std::to_string(getLargeur()) + " " +
           std::to_string(getHauteur());
 }
-
-// Methodes statiques / de classe
-int Forme::getId() const { return id; }
-int Forme::prochainId() { return nbFormes; }
-
-// Methodes const
-COULEURS Forme::getCouleur() const { return couleur; }
-double Forme::getLargeur() const { return w; }
-double Forme::getHauteur() const { return h; }
 
 // Methodes avec effet de bord
 Point &Forme::getPoint() { return point; } // TODO: Réussir à retourner la référence du point

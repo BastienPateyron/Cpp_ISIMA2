@@ -1,7 +1,7 @@
-SRC=Cercle.cpp Forme.cpp Point.cpp Rectangle.cpp tests_catch.cpp main_catch.cpp
-#SRC=$(wildcard *.cpp)  
+#SRC=Cercle.cpp Forme.cpp Point.cpp Rectangle.cpp tests_catch.cpp main_catch.cpp
+SRC=$(wildcard *.cpp)  
 CXX=g++
-EXE=cpp4
+EXE=prog.exe
 
 MACOS=
 #MACOS=-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
