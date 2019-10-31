@@ -2,9 +2,6 @@
 
 #include <iostream>
 
-using namespace std;
-
-
 class Bavarde 
 {
     // Attributs prives

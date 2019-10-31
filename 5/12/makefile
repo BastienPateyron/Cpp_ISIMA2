@@ -1,6 +1,7 @@
-SRC=$(wildcard *.cpp)  
+SRC=Cercle.cpp Forme.cpp Point.cpp Rectangle.cpp tests_catch.cpp main_catch.cpp
+#SRC=$(wildcard *.cpp)  
 CXX=g++
-EXE=prog.exe
+EXE=cpp4
 
 MACOS=
 #MACOS=-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
@@ -18,6 +19,6 @@ build/%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 clean:
-	rm -rf build core *.gch $(EXE)
+	rm -rf build core *.gch
 
 -include $(DEP)

@@ -10,22 +10,21 @@ Bavarde::Bavarde() : Bavarde(0)
 
 Bavarde::Bavarde(int x)
 {
-  numero = x;
-  compteur++;
-  cout << "Construction de " << numero << endl;
+  numero = compteur++;
+  std::cout << "Construction de " << numero << std::endl;
 }
 
 Bavarde::Bavarde(const Bavarde  &  b) : Bavarde(b.numero) {}
 
 Bavarde::~Bavarde()
 {
-  cout << "Tais toi " << numero << endl;
+  std::cout << "Tais toi " << numero << std::endl;
 }
 
 int Bavarde::getNumero() { return numero; }
 
 void Bavarde::afficher()
 {
-  cout << "Affichage de " << getNumero() << endl;
+  std::cout << "Affichage de " << getNumero() << std::endl;
 }
 

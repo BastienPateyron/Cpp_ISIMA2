@@ -3,7 +3,7 @@
 // Liste d'initialisation pour eviter l'appel du constructeur par defaut au debut
 Couple::Couple() : a(Bavarde(1)), b(Bavarde(2)) 
 {
-  cout << "New Couple" << endl;
+  std::cout << "New Couple" << std::endl;
 }
 
 // Couple::Couple(int, int)
@@ -13,7 +13,7 @@ Couple::Couple() : a(Bavarde(1)), b(Bavarde(2))
 
 Couple::~Couple()
 {
-    cout << "Delete Couple" << endl;
+    std::cout << "Delete Couple" << std::endl;
 }
 
 
@@ -23,5 +23,5 @@ int Couple::getNumeroB() { return b.getNumero();}
 
 void Couple::afficher()
 {
-  cout << "Couple: " << getNumeroA() << " - " << getNumeroB() << endl;
+  std::cout << "Couple: " << getNumeroA() << " - " << getNumeroB() << std::endl;
 }

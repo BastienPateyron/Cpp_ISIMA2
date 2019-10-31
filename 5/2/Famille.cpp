@@ -2,7 +2,7 @@
 
 Famille::Famille(int taille) : membres()
 {
-  cout << "Famille de " << taille << " membres" << endl;
+  std::cout << "Famille de " << taille << " membres" << std::endl;
   membres = new Bavarde[taille];
 }
 

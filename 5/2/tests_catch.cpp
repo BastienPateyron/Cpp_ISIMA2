@@ -41,11 +41,11 @@ void test4(Bavarde *b) {
 TEST_CASE("Copie", "[Bavarde]")
 {
 	Bavarde b;
-	// test1(b);
-	// test2a();
-
-	// REQUIRE(test2b().getNumero() == 5);
+	test1(b);
+	test2a();
+	test2b();
 	test3(b);
+  test4(&b);
 }
 
 
