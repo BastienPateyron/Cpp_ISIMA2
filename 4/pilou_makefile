@@ -1,0 +1,38 @@
+CPPFLAGS = -Wall -Wextra
+LDFLAGS =
+
+CXX = g++
+SRCS = $(wildcard $(SRC)/*.cpp)
+HEADS = $(wildcard $(HEADERS)/*.hpp)
+SRC = class
+HEADERS = header
+OBJ = build
+BIN = bin
+EXE = prog.exe
+
+
+
+$(BIN): CREATE_DIR $(patsubst $(SRC)/%.cpp,$(OBJ)/%.o,$(SRCS))
+	@mkdir -p $(@D)
+	$(CXX) $(LDFLAGS) -o $(EXE) $^
+
+CREATE_DIR:
+	@mkdir -p class
+	@mkdir -p header
+	@[ ! -f *.cpp ] || mv *.cpp class
+	@[ ! -f *.hpp ] || mv *.hpp header
+	@echo ok
+	@echo "[$($(SRCS))]"
+	@echo "[$(patsubst $(SRC)/%.cpp,$(OBJ)/%.o,$(SRCS))]"
+	@echo "[$(OBJ)/%.o]"
+	
+$(OBJ)/%.o: $(SRC)/%.cpp  $(HEADERS)/%.hpp
+	echo "Constr: $(@D)"
+	@mkdir -p $(@D)
+	$(CXX) -c $(CPPFLAGS) -o $@ $<
+
+clean:
+	rm -rf build core *.gch $(EXE)
+
+
+# -include $(HEADS)
