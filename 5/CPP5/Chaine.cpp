@@ -5,19 +5,29 @@
 
 
 // Constructeurs
-Chaine::Chaine() : capacite(-1), tab(NULL) {}
+Chaine::Chaine() : capacite(0), tab(NULL) {}
 
-Chaine::Chaine(int taille = 0) : capacite(taille) {}
-
-Chaine::Chaine(char const * inCS) // Input_C_String
+Chaine::Chaine(char const * inCS) : capacite(strlen(inCS)+ 1) // Input_C_String
 {
-   tab = (char *) malloc(sizeof(char) * strlen(inCS));
+
+   tab = (char *) malloc(sizeof(char) * capacite);
    strcpy(tab, inCS);
 }
 
-Chaine::~Chaine() {if(tab) free(tab);}
+Chaine::Chaine(int inCapacite = 0) : capacite(inCapacite + 1) // +1 Pour le \0 géré en interne
+{
+   tab = (char *) malloc(sizeof(char) * capacite);
+   memset(tab, 0, capacite);
+}
+
+Chaine::Chaine(Chaine * c) : capacite(c->capacite)
+{
+   strcpy(this->tab, c->tab);
+}
+
+Chaine::~Chaine() { free(tab); }
 
 
 // Methodes
-int    Chaine::getCapacite() const { return capacite; }
+int    Chaine::getCapacite() const { return capacite - 1; } // -1 car la capacité interne compte aussi le \0
 char * Chaine::c_str()       const { return tab; }

@@ -15,7 +15,6 @@ TEST_CASE("Verification des const sur les accesseurs") {
    CHECK(  0 == c.c_str()); // 0, NULL, ou nullptr
 }
 
-// TODO //
 TEST_CASE("Constructeur par chaine C") {
 	char  source []= "rien";
     Chaine c1(source);
@@ -29,16 +28,14 @@ TEST_CASE("Constructeur par chaine C") {
     // Verifier que la liberation memoire est bien faite
 }
 
-/*
 TEST_CASE("Constructeur avec capacite") {
     Chaine c1(6);
     CHECK( 6 == c1.getCapacite());
     CHECK( 0 == strlen(c1.c_str())); 
 
     // Verifier que la liberation memoire est bien faite
-}*/
+}
 
-/*
 TEST_CASE("Constructeur de copie") {
     Chaine s1(10);   // une chaine vide
     Chaine s2 = s1;  // une autre chaine vide
@@ -48,7 +45,7 @@ TEST_CASE("Constructeur de copie") {
     // j'ai converti en void * uniquement pour l'affichage de catch
     CHECK( (void *)s1.c_str() != (void *)s2.c_str() );
     CHECK( 0 == strcmp(s1.c_str(), s2.c_str() ));
-}*/
+}
 
 /*
 TEST_CASE("methode afficher") {
