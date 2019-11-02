@@ -64,7 +64,7 @@ TEST_CASE("methode afficher") {
     CHECK( ss.str() == original); // test de std::string :-)
 }
 
-/*
+// TODO
 TEST_CASE("operateur d'affectation") {
 	Chaine s1("une premiere chaine");
     Chaine s2("une deuxieme chaine plus longue que la premiere");
@@ -76,7 +76,7 @@ TEST_CASE("operateur d'affectation") {
     CHECK( 0 == strcmp(s1.c_str(), s2.c_str() ));
 
     s1 = s1; // est ce que cela va survivre a l execution ?
-}*/
+}
 
 /*
 TEST_CASE("Surcharge <<") {
