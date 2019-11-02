@@ -26,6 +26,8 @@ class Chaine  {
       int    getCapacite()                           const;
       char * c_str()                                 const;
       void   afficher(std::ostream & flux=std::cout) const;
+      void   afficherParValeur(Chaine const  c)      const;
+      void   afficherParReference(Chaine const & c)  const;
 
       // Effet de Bord
 

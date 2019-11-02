@@ -30,6 +30,8 @@ Chaine::~Chaine() { free(tab); }
 
 
 // Methodes
-int    Chaine::getCapacite()                 const { return capacite - 1; } // -1 car la capacité interne compte aussi le \0
-char * Chaine::c_str()                       const { return tab; }
-void   Chaine::afficher(std::ostream & flux) const { flux << c_str();}
+int    Chaine::getCapacite()                           const { return capacite - 1; } // -1 car la capacité interne compte aussi le \0
+char * Chaine::c_str()                                 const { return tab; }
+void   Chaine::afficher(std::ostream & flux)           const { flux << c_str(); }
+void   Chaine::afficherParValeur(Chaine const  c)      const { c.afficher(); }
+void   Chaine::afficherParReference(Chaine const  & c) const { c.afficher(); }

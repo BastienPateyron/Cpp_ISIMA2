@@ -49,12 +49,18 @@ TEST_CASE("Constructeur de copie") {
 
 TEST_CASE("methode afficher") {
 	const char * original = "une chaine a tester";
+    const char * copie    = "chaine d'affichage par copie et reference -- ";
     const Chaine c1(original);
+    const Chaine c2(copie);
+
     std::stringstream ss;
     
     c1.afficher(); // on verifie juste que ca compile
     c1.afficher(ss);
+    c1.afficherParValeur(c2);
+    c1.afficherParReference(c2);
 
+    std::cout << ss.str() << std::endl;
     CHECK( ss.str() == original); // test de std::string :-)
 }
 
