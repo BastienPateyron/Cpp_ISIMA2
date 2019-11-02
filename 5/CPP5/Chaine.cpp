@@ -20,9 +20,9 @@ Chaine::Chaine(int inCapacite = 0) : capacite(inCapacite + 1) // +1 Pour le \0 g
    memset(tab, 0, capacite);
 }
 
-Chaine::Chaine(Chaine * c) : capacite(c->capacite)
+Chaine::Chaine(Chaine const & c) : Chaine(c.getCapacite())
 {
-   strcpy(this->tab, c->tab);
+   strcpy(this->tab, c.tab);
 }
 
 Chaine::~Chaine() { free(tab); }

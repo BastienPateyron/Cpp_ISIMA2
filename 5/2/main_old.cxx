@@ -64,6 +64,5 @@ int main(int, char **)
   f14();
   // f15();
 
-  // TODO New Project: Fil Rouge
   return 0;
 }

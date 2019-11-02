@@ -22,5 +22,3 @@ class Groupe : public Forme
       std::string toString();
       void ajouter(Forme * c);
 };
-
-// TODO Gerer l'ordre

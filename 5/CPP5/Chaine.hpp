@@ -17,9 +17,9 @@ class Chaine  {
    public:
       // Constructeurs
       Chaine();
-      Chaine(char const * inCS); // Input_C_Strin
+      Chaine(const char * inCS); // Input_C_Strin
       Chaine(int capacite);
-      Chaine(Chaine * c);
+      Chaine(Chaine const & c);
       ~Chaine();
 
       // Constantes
