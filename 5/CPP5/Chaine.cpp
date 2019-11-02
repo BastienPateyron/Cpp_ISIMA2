@@ -23,11 +23,13 @@ Chaine::Chaine(int inCapacite = 0) : capacite(inCapacite + 1) // +1 Pour le \0 g
 Chaine::Chaine(Chaine const & c) : Chaine(c.getCapacite())
 {
    strcpy(this->tab, c.tab);
+   std::cerr << "Constructeur de copie" << std::endl;
 }
 
 Chaine::~Chaine() { free(tab); }
 
 
 // Methodes
-int    Chaine::getCapacite() const { return capacite - 1; } // -1 car la capacité interne compte aussi le \0
-char * Chaine::c_str()       const { return tab; }
+int    Chaine::getCapacite()                 const { return capacite - 1; } // -1 car la capacité interne compte aussi le \0
+char * Chaine::c_str()                       const { return tab; }
+void   Chaine::afficher(std::ostream & flux) const { flux << c_str();}

@@ -23,8 +23,9 @@ class Chaine  {
       ~Chaine();
 
       // Constantes
-      int    getCapacite() const;
-      char * c_str()       const;
+      int    getCapacite()                           const;
+      char * c_str()                                 const;
+      void   afficher(std::ostream & flux=std::cout) const;
 
       // Effet de Bord
 
