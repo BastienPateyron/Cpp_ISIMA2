@@ -17,7 +17,7 @@ class Chaine  {
    public:
       // Constructeurs
       Chaine();
-      Chaine(const char * inCS); // Input_C_Strin
+      Chaine(char const * inCS); // Input_C_Strin
       Chaine(int capacite);
       Chaine(Chaine const & c);
       ~Chaine();
@@ -30,11 +30,13 @@ class Chaine  {
       void   afficherParReference(Chaine const & c)  const;
 
       // Effet de Bord
-
+      Chaine & operator=(Chaine const & c);
 
 
    // Elements de classe
 
 };
+
+std::ostream & operator<<(std::ostream & flux, Chaine const & c);  
 
 #endif
