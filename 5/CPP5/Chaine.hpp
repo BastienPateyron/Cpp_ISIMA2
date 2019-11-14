@@ -30,8 +30,9 @@ class Chaine  {
       void   afficherParReference(Chaine const & c)  const;
 
       // Effet de Bord
-      Chaine & operator=(Chaine const & c);
-
+      Chaine     & operator=(Chaine const & c);
+      const char & operator[](int const index) const;
+      //  char & operator[](int const index);
 
    // Elements de classe
 

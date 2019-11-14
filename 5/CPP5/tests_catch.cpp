@@ -76,10 +76,8 @@ TEST_CASE("operateur d'affectation") {
     CHECK( (void *)s1.c_str() != (void *)s2.c_str() );
     CHECK( 0 == strcmp(s1.c_str(), s2.c_str() ));
 
-    std::puts(s1.c_str());
+    s1 = s1; // est ce que cela va survivre a l execution ? 
 
-    s1 = s1; // est ce que cela va survivre a l execution ?
-    std::puts(s1.c_str());
     // Test chainage d'affectation    
     s1 = s2 = s3;
     CHECK( 0 == strcmp(s2.c_str(), s3.c_str() ));
@@ -90,7 +88,13 @@ TEST_CASE("Surcharge <<") {
 	const char * chaine = "une nouvelle surcharge";
 	Chaine s(chaine);
     std::stringstream ss;
-    // ss << s;  // :-)
+    ss << s;  // :-)
 
     CHECK( ss.str() == chaine ); //  test de std::string, again :-))
+}
+
+TEST_CASE("Surcharge []") {
+	const char * chaine = "abcd";
+	Chaine s(chaine);
+    CHECK( s[2] == chaine[2] ); //  test de std::string, again :-))
 }
