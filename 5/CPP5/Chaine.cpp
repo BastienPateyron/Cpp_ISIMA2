@@ -60,7 +60,11 @@ Chaine & Chaine::operator=(const Chaine &c)
 // Fonctions
 std::ostream & operator<<(std::ostream & flux, Chaine const & c)
 {
-   if(c.c_str()) c.afficher(flux);
+   if(c.c_str())
+   {
+      // for(int i = 0; i < (int) strlen(c.c_str()); i++) std::cout << c[i] << std::endl;
+      c.afficher(flux);
+   }
    return flux;
 }
 
@@ -71,5 +75,19 @@ const char & Chaine::operator[](int const index) const
       std::cerr << "Erreur d'index" << std::endl;
       // std::exit(1); // moisi
    }
+
    return tab[index];
+}
+ 
+char & Chaine::operator[](int const index)
+{
+   
+   if((index < 0) || (index >= capacite) || !tab) // Tests à recopier ailleurs
+   {
+      std::cerr << "Erreur d'index" << std::endl;
+      // std::exit(1); // moisi
+   }
+
+   return tab[index];
+
 }

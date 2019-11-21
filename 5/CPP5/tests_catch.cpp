@@ -64,7 +64,6 @@ TEST_CASE("methode afficher") {
     CHECK( ss.str() == original); // test de std::string :-)
 }
 
-// TODO
 TEST_CASE("operateur d'affectation") {
 	Chaine s1("une premiere chaine");
     Chaine s2("une deuxieme chaine plus longue que la premiere");
@@ -84,13 +83,14 @@ TEST_CASE("operateur d'affectation") {
     CHECK( (void *)s2.c_str() != (void *)s3.c_str() );
 }
 
+// TODO
 TEST_CASE("Surcharge <<") {
 	const char * chaine = "une nouvelle surcharge";
 	Chaine s(chaine);
     std::stringstream ss;
     ss << s;  // :-)
 
-    CHECK( ss.str() == chaine ); //  test de std::string, again :-))
+    CHECK( ss.str() == chaine); //  test de std::string, again :-))
 }
 
 TEST_CASE("Surcharge []") {

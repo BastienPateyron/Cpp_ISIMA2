@@ -32,12 +32,12 @@ class Chaine  {
       // Effet de Bord
       Chaine     & operator=(Chaine const & c);
       const char & operator[](int const index) const;
-      //  char & operator[](int const index);
+      char       & operator[](int const index);
 
    // Elements de classe
 
 };
 
-std::ostream & operator<<(std::ostream & flux, Chaine const & c);  
+std::ostream & operator<<(std::ostream & flux, Chaine const & c);    
 
 #endif
