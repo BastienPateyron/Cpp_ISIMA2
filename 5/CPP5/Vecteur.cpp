@@ -20,7 +20,7 @@ Vecteur & Vecteur::operator=(Vecteur const & v)
       if(size)
       {
          tab = new double[capacite];
-         std::copy(v.tab[0], v.tab[size], tab);
+         std::copy(v.tab, v.tab + v.size, tab);
       }
       else tab = nullptr;
    }
@@ -37,9 +37,9 @@ Vecteur operator+(Vecteur const & a, Vecteur const & b)
 
    Vecteur v(size * 2);
 
-   std::copy(a.tab[0], a.tab[a.size], v.tab[0]);
-   std::copy(b.tab[0], b.tab[b.size], v.tab[v.size]);
-
+   std::copy(a.tab, a.tab + a.size, v.tab);
+   std::copy(b.tab, b.tab + b.size, v.tab + v.size);
+   
    return v;
 }
 // std::ostream & operator<<(std::ostream const & flux, Vecteur const & v)
