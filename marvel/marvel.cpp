@@ -4,3 +4,13 @@ Personne::Personne(const char * prenom, const char * nom, Personne::Genre genre)
 {
 
 }
+
+std::string Personne::afficherGenre() const
+{
+   switch(genre)
+   {
+      case(Personne::HOMME):       return "[HOMME]";
+      case(Personne::FEMME):       return "[FEMME]";
+      case(Personne::INDETERMINE): return "[INDETERMINE]";
+   } 
+}

@@ -16,6 +16,8 @@ class Personne
       std::string getNom()    const { return nom; };
       std::string getPrenom() const { return prenom; };      
       Genre       getGenre()  const { return genre; };
+      std::string afficherGenre() const;
+      std::ostream & afficher(std::ostream & s) { s << prenom << " " << nom << " " << afficherGenre(); };
 
    private:
       std::string nom, prenom;
