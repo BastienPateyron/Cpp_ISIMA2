@@ -2,10 +2,12 @@
 #define marvel__hpp
 #include <iostream>
 
+
 class Personne
 {
    public:
    
+      static Personne INCONNU;
       enum Genre {HOMME, FEMME, INDETERMINE};
       
       Personne();
@@ -22,7 +24,6 @@ class Personne
    private:
       std::string nom, prenom;
       Genre genre; // Personne::Genre
-
 
       
 };

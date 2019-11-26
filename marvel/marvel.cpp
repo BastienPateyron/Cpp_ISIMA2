@@ -12,5 +12,8 @@ std::string Personne::afficherGenre() const
       case(Personne::HOMME):       return "[HOMME]";
       case(Personne::FEMME):       return "[FEMME]";
       case(Personne::INDETERMINE): return "[INDETERMINE]";
+      default:                     return "-Erreur_switch-";
    } 
 }
+
+Personne Personne::INCONNU("Inconnu", "Inconnu", Personne::INDETERMINE);
