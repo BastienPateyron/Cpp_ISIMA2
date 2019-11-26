@@ -1,5 +1,5 @@
-SRC=Chaine.cpp tests_catch.cpp main_test.cpp
-#SRC=$(wildcard *.cpp)  
+# SRC=Chaine.cpp tests_catch.cpp main_test.cpp
+SRC=$(wildcard *.cpp)  
 EXE=prog.exe
 
 CXXFLAGS+=-Wall -Wextra -MMD -g -O2
