@@ -2,7 +2,7 @@
 #include "catch.hpp"
 #include "marvel.hpp"
 
-/*
+
 TEST_CASE("Personne1") {
     const char * prenom   = "Bruce";
     const char * nom      = "Wayne";
@@ -12,9 +12,8 @@ TEST_CASE("Personne1") {
     REQUIRE( prenom    == p.getPrenom());
     REQUIRE( nom       == p.getNom());
     REQUIRE( genre     == p.getGenre());
-}*/
+}
 
-/*
 TEST_CASE("Personne2") {
     const Personne p("Diana", "Prince", Personne::FEMME);
 
@@ -23,6 +22,7 @@ TEST_CASE("Personne2") {
     REQUIRE( Personne::FEMME  == p.getGenre());
 }
 
+/*
 TEST_CASE("Personne3") {
     Personne sorciere("Wanda", "Maximof", Personne::FEMME);
     std::stringstream ss;
