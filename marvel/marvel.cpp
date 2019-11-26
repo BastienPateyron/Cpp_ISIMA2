@@ -17,3 +17,11 @@ std::string Personne::afficherGenre() const
 }
 
 Personne Personne::INCONNU("Inconnu", "Inconnu", Personne::INDETERMINE);
+
+bool operator==(Personne const & a, Personne const & b)
+{
+   return (
+      a.getNom()    == b.getNom() &&
+      a.getPrenom() == b.getPrenom() &&
+      a.getGenre()  == b.getGenre());
+}

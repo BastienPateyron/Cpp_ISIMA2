@@ -25,7 +25,8 @@ class Personne
       std::string nom, prenom;
       Genre genre; // Personne::Genre
 
-      
 };
+
+bool operator==(Personne const & a, Personne const & b);
 
 #endif
