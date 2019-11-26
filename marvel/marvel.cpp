@@ -25,3 +25,8 @@ bool operator==(Personne const & a, Personne const & b)
       a.getPrenom() == b.getPrenom() &&
       a.getGenre()  == b.getGenre());
 }
+
+std::ostream & operator<<(std::ostream & s, Personne const & p)
+{
+   return p.afficher(s);
+}

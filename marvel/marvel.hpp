@@ -19,7 +19,7 @@ class Personne
       std::string getPrenom() const { return prenom; };      
       Genre       getGenre()  const { return genre; };
       std::string afficherGenre() const;
-      std::ostream & afficher(std::ostream & s) { return s << prenom << " " << nom << " " << afficherGenre(); };
+      std::ostream & afficher(std::ostream & s) const { return s << prenom << " " << nom << " " << afficherGenre(); };
 
    private:
       std::string nom, prenom;
@@ -28,5 +28,6 @@ class Personne
 };
 
 bool operator==(Personne const & a, Personne const & b);
+std::ostream & operator<<(std::ostream & s, Personne const & p);
 
 #endif

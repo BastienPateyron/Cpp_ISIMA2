@@ -40,13 +40,13 @@ TEST_CASE("Inconnu2") {
     REQUIRE( !(Personne::INCONNU  == Personne("", "", Personne::HOMME)));
 }  
 
-/*
 TEST_CASE("Inconnu3") {
     std::stringstream ss;
     ss << Personne::INCONNU;
     REQUIRE("Inconnu Inconnu [INDETERMINE]" == ss.str() );
 } 
 
+/*
 TEST_CASE("Super1") {
     Super heros("Superman", Personne("Clark", "Kent", Personne::HOMME));
 
