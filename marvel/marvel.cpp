@@ -34,7 +34,7 @@ std::string Personne::afficherGenre() const
 // Super //
 Personne & Super::getIdentite()
 {
-   if(anonyme) throw new Super::AnonymeException;
+   if(anonyme) throw new AnonymeException;
    return personne;
 }
 

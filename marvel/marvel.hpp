@@ -48,13 +48,17 @@ class Super {
 
 
    public:
-      // Exceptions
-      class AnonymeException : public std::exception {};
 };
 
 
 // Fonctions
 bool operator==(Personne const & a, Personne const & b);
 std::ostream & operator<<(std::ostream & s, Personne const & p);
+
+// Exceptions
+class AnonymeException : public std::exception { 
+   public: 
+   const char * what() { return "identite anonyme"; }
+};
 
 #endif
