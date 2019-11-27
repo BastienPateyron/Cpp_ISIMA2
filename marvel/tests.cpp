@@ -69,7 +69,6 @@ TEST_CASE("Anonyme2") {
     REQUIRE( msg == ie.what());
 } 
 
-/*
 TEST_CASE("Anonyme3") {
     Super spider("Spiderman", Personne("Peter", "Parker", Personne::HOMME));
     CHECK_THROWS_AS  ( spider.getIdentite(), AnonymeException);
@@ -77,6 +76,7 @@ TEST_CASE("Anonyme3") {
 
 }
 
+/*
 TEST_CASE("Super2") {
     Super venom("Venom", Personne("Peter", "Parker", Personne::HOMME));
     venom.enregistrer();

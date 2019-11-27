@@ -1,6 +1,7 @@
 #ifndef marvel__hpp
 #define marvel__hpp
 #include <iostream>
+#include <exception>
 
 
 // Classes
@@ -58,7 +59,7 @@ std::ostream & operator<<(std::ostream & s, Personne const & p);
 // Exceptions
 class AnonymeException : public std::exception { 
    public: 
-   const char * what() { return "identite anonyme"; }
+      const char * what() { return "identite anonyme"; }
 };
 
 #endif
