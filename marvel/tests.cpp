@@ -53,7 +53,6 @@ TEST_CASE("Super1") {
     REQUIRE ( true      == heros.estAnonyme()); // C'est le pouvoir des lunettes
     // ça marche, même pour mon avatar !!!
 }
-/*
 
 TEST_CASE("Anonyme1") {
     Super spider("Spiderman", Personne("Peter", "Parker", Personne::HOMME));
@@ -64,6 +63,7 @@ TEST_CASE("Anonyme1") {
     REQUIRE ("Parker" == spider.getIdentite().getNom());
 }
 
+/*
 TEST_CASE("Anonyme2") {
     const char * msg = "identite anonyme";
     AnonymeException ie;

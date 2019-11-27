@@ -2,6 +2,7 @@
 #define marvel__hpp
 #include <iostream>
 
+
 // Classes
 class Personne
 {
@@ -15,11 +16,11 @@ class Personne
       // Personne(Personne const & p);
       Personne(std::string , std::string , Personne::Genre);
       
-      std::string    getNom()                   const { return nom; };
-      std::string    getPrenom()                const { return prenom; };      
-      Genre          getGenre()                 const { return genre; };
+      std::string    getNom()                   const { return nom; }
+      std::string    getPrenom()                const { return prenom; }    
+      Genre          getGenre()                 const { return genre; }
       std::string    afficherGenre()            const;
-      std::ostream & afficher(std::ostream & s) const { return s << prenom << " " << nom << " " << afficherGenre(); };
+      std::ostream & afficher(std::ostream & s) const { return s << prenom << " " << nom << " " << afficherGenre(); }
 
    private:
       std::string nom, prenom;
@@ -30,16 +31,25 @@ class Personne
 
 class Super {
    public:
-      Super(std::string nom, Personne p) : nom(nom), personne(p), anonyme(true) {};
+      Super(std::string nom, Personne p) : nom(nom), personne(p), anonyme(true) {}
 
       std::string getNom()     const { return nom; }      
       bool        estAnonyme() const { return anonyme; }
+
+      
+      
+      void        enregistrer() { anonyme = false; }
+      Personne &  getIdentite();
 
    private:
       std::string nom;
       Personne    personne;
       bool        anonyme;
 
+
+   public:
+      // Exceptions
+      class AnonymeException : public std::exception {};
 };
 
 
