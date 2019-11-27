@@ -76,7 +76,6 @@ TEST_CASE("Anonyme3") {
 
 }
 
-/*
 TEST_CASE("Super2") {
     Super venom("Venom", Personne("Peter", "Parker", Personne::HOMME));
     venom.enregistrer();
@@ -86,7 +85,6 @@ TEST_CASE("Super2") {
     CHECK( "Brock"  == venom.getIdentite().getNom() );
     CHECK( "Parker" != venom.getIdentite().getNom() );
 }
-*/
 
 
 /*

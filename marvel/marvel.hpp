@@ -15,7 +15,7 @@ class Personne
       Personne();
       // ~Personne();
       // Personne(Personne const & p);
-      Personne(std::string , std::string , Personne::Genre);
+      Personne(std::string , std::string , Personne::Genre = Personne::INDETERMINE);
       
       std::string    getNom()                   const { return nom; }
       std::string    getPrenom()                const { return prenom; }    
@@ -34,13 +34,14 @@ class Super {
    public:
       Super(std::string nom, Personne p) : nom(nom), personne(p), anonyme(true) {}
 
-      std::string getNom()     const { return nom; }      
-      bool        estAnonyme() const { return anonyme; }
+      std::string       getNom()      const { return nom; }      
+      bool              estAnonyme()  const { return anonyme; }
+      const Personne &  getIdentite() const;
 
       
       
-      void        enregistrer() { anonyme = false; }
-      Personne &  getIdentite();
+      void enregistrer() { anonyme = false; }
+      void setIdentite(Personne const & p) {anonyme = true; personne = p;}
 
    private:
       std::string nom;
