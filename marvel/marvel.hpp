@@ -52,6 +52,59 @@ class Super {
    public:
 };
 
+// Capacites
+class Capacite
+{
+   private:
+
+   protected:
+      std::string nom;
+      int         niveau;
+
+   public:
+      Capacite(std::string const & n, int const & lvl) : nom(n), niveau(lvl) {};
+
+      virtual std::ostream & utiliser(std::ostream & log) { return log << nom << " [" << niveau << "]"; };
+};
+
+// Materiel
+class Materiel : public Capacite
+{
+   public:
+      Materiel(std::string const & n, int const & lvl) : Capacite(n, lvl) {};
+
+      // Redéfinitions
+      virtual std::ostream & actionner(std::ostream & log) { return Capacite::utiliser(log) << " en action"; }
+};
+
+// Physique
+class Physique : public Capacite
+{
+   public:
+      Physique(std::string const & n, int const & lvl) : Capacite(n, lvl) {};
+      virtual std::ostream & exercer(std::ostream & log) { return Capacite::utiliser(log); }
+
+};
+
+// Psychique
+class Psychique : public Capacite
+{
+   public:
+      Psychique(std::string const & n, int const & lvl) : Capacite(n, lvl) {};
+      virtual std::ostream & penser(std::ostream & log) { return Capacite::utiliser(log); }
+
+};
+
+
+
+
+
+
+
+
+
+
+
 
 // Fonctions
 bool operator==(Personne const & a, Personne const & b);

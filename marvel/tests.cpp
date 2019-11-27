@@ -95,7 +95,6 @@ TEST_CASE("Capacite0") {
 } 
 */
 
-/*
 TEST_CASE("Materiel") {
     Materiel armure("MarkI", 5);
     std::stringstream log;
@@ -117,6 +116,7 @@ TEST_CASE("Psychique") {
     REQUIRE ( "telepathie [7]" == log.str()); 
 }
 
+/*
 TEST_CASE("Capacite1") {
     std::stringstream log;
     // pas taper ...
