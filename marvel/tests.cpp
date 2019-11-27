@@ -116,7 +116,6 @@ TEST_CASE("Psychique") {
     REQUIRE ( "telepathie [7]" == log.str()); 
 }
 
-/*
 TEST_CASE("Capacite1") {
     std::stringstream log;
     // pas taper ...
@@ -145,6 +144,7 @@ TEST_CASE("Capacite2") {
     REQUIRE(100 == rien.getNiveau());
 }
 
+/*
 TEST_CASE("Capacite3") {
     Capacite * m1 = new Materiel("Anneau", 5);
     Capacite * m2 = m1->clone();
