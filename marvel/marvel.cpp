@@ -1,6 +1,6 @@
 #include "marvel.hpp"
 
-Personne::Personne(const char * prenom, const char * nom, Personne::Genre genre) : nom(nom), prenom(prenom), genre(genre) 
+Personne::Personne(std::string prenom, std::string nom, Personne::Genre genre) : nom(nom), prenom(prenom), genre(genre) 
 {
 
 }

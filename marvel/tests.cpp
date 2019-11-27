@@ -46,7 +46,6 @@ TEST_CASE("Inconnu3") {
     REQUIRE("Inconnu Inconnu [INDETERMINE]" == ss.str() );
 } 
 
-/*
 TEST_CASE("Super1") {
     Super heros("Superman", Personne("Clark", "Kent", Personne::HOMME));
 
@@ -54,6 +53,7 @@ TEST_CASE("Super1") {
     REQUIRE ( true      == heros.estAnonyme()); // C'est le pouvoir des lunettes
     // ça marche, même pour mon avatar !!!
 }
+/*
 
 TEST_CASE("Anonyme1") {
     Super spider("Spiderman", Personne("Peter", "Parker", Personne::HOMME));
