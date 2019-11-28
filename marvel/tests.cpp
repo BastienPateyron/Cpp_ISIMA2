@@ -161,7 +161,6 @@ TEST_CASE("Capacite3") {
     delete m3;
 }
 
-/*
 TEST_CASE("Super3") {
     Super iron("Iron Man", Personne("Tony", "Starck"));
     iron.enregistrer();
@@ -181,6 +180,7 @@ TEST_CASE("Super3") {
     REQUIRE ( 10 == warm.getNiveau());
 }
 
+/*
 TEST_CASE("Equipe") {
     Equipe vengeurs("vengeurs");
     REQUIRE ( 0 == vengeurs.getNombre());

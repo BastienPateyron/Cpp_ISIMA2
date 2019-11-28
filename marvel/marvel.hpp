@@ -55,8 +55,9 @@ class Super {
       
       
       void enregistrer() { anonyme = false; }
+      void setNom(std::string const s)     {nom = s;}
       void setIdentite(Personne const & p) {anonyme = true; personne = p;}
-      void ajouter(Capacite const * c) {capacites.push_back(c);}
+      void ajouter(Capacite const * c)     {capacites.push_back(c);}
 
    private:
       std::string                   nom;
