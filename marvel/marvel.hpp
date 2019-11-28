@@ -81,18 +81,21 @@ class Capacite
    public:
       Capacite(std::string const & n, int const & lvl) : nom(n), niveau(lvl) {};
       virtual ~Capacite() {};
-      virtual void utiliser(std::ostream & log) = 0;
-      int getNiveau() const { return niveau; }
+      virtual void       utiliser(std::ostream & log) = 0;
+      virtual Capacite * clone()     const { return nullptr;};
+      int                getNiveau() const { return niveau; }
+      std::string        getNom()    const { return nom; }
+      
 };
 
 // Materiel
 class Materiel : public Capacite
-{
+{        
    public:
       Materiel(std::string const & n, int const & lvl) : Capacite(n, lvl) {};
-      // Redéfinitions
-      void utiliser(std::ostream & log) { actionner(log); }
-      void actionner(std::ostream & log) { log << nom << " [" << niveau << "]" << " en action"; }
+      void        utiliser(std::ostream & log)  { actionner(log); }
+      void        actionner(std::ostream & log) { log << nom << " [" << niveau << "]" << " en action"; }
+      Materiel *  clone() const;
 };
 
 // Physique

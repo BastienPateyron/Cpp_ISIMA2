@@ -148,7 +148,6 @@ TEST_CASE("Capacite2") {
     REQUIRE(100 == rien.getNiveau());
 }
 
-/*
 TEST_CASE("Capacite3") {
     Capacite * m1 = new Materiel("Anneau", 5);
     Capacite * m2 = m1->clone();
@@ -162,6 +161,7 @@ TEST_CASE("Capacite3") {
     delete m3;
 }
 
+/*
 TEST_CASE("Super3") {
     Super iron("Iron Man", Personne("Tony", "Starck"));
     iron.enregistrer();

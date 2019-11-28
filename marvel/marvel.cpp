@@ -72,3 +72,10 @@ int Super::getNiveau() const
       0, 
       [] (int i,  Capacite const * c) { return c->getNiveau() + i; } ); // Lambda qui accumule dans i la valeur des niveaux de la liste
 }
+
+Materiel *  Materiel::clone() const
+{
+   Materiel * m = new Materiel(*this);
+
+   return m;
+}
