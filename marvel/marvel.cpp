@@ -37,3 +37,12 @@ const Personne & Super::getIdentite() const
    if(anonyme) throw AnonymeException();
    return personne;
 }
+
+int Super::getNiveau() const
+{
+   return std::accumulate(
+      capacites.begin(), 
+      capacites.end(), 
+      0, 
+      [] (int i,  Capacite const * c) { return c->getNiveau() + i; } ); // Lambda qui accumule dans i la valeur des niveaux de la liste
+}

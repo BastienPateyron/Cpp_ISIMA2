@@ -2,6 +2,17 @@
 #define marvel__hpp
 #include <iostream>
 #include <exception>
+#include <vector>
+#include <numeric>
+
+// Class forwarding //
+
+class Personne;
+class Super;
+class Capacite;
+class Materiel;
+class Physique;
+class Psychique;
 
 
 // Classes
@@ -37,20 +48,22 @@ class Super {
       std::string       getNom()      const { return nom; }      
       bool              estAnonyme()  const { return anonyme; }
       const Personne &  getIdentite() const;
-
+      int               getNiveau()   const;
       
       
       void enregistrer() { anonyme = false; }
       void setIdentite(Personne const & p) {anonyme = true; personne = p;}
+      void ajouter(Capacite const * c) {capacites.push_back(c);}
 
    private:
-      std::string nom;
-      Personne    personne;
-      bool        anonyme;
-
+      std::string                   nom;
+      Personne                      personne;
+      bool                          anonyme;
+      std::vector<Capacite const *> capacites;           
 
    public:
 };
+
 
 // Capacites
 class Capacite
@@ -65,6 +78,7 @@ class Capacite
       Capacite(std::string const & n, int const & lvl) : nom(n), niveau(lvl) {};
       virtual ~Capacite() {};
       virtual void utiliser(std::ostream & log) = 0;
+      int getNiveau() const { return niveau; }
 };
 
 // Materiel
@@ -96,8 +110,6 @@ class Psychique : public Capacite
       void penser(std::ostream & log) { log << nom << " [" << niveau << "]"; }
 
 };
-
-
 
 
 
