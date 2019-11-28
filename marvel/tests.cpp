@@ -130,6 +130,7 @@ TEST_CASE("Capacite1") {
     REQUIRE ( "telekinesie [12]" == log.str()); 
     delete capa;
 } 
+/*
 
 TEST_CASE("Capacite2") {
     Super wolf("wolferine", Personne("James", "Howlett")); // Le vrai nom de Logan
@@ -144,7 +145,6 @@ TEST_CASE("Capacite2") {
     REQUIRE(100 == rien.getNiveau());
 }
 
-/*
 TEST_CASE("Capacite3") {
     Capacite * m1 = new Materiel("Anneau", 5);
     Capacite * m2 = m1->clone();

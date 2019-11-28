@@ -63,8 +63,8 @@ class Capacite
 
    public:
       Capacite(std::string const & n, int const & lvl) : nom(n), niveau(lvl) {};
-
-      virtual std::ostream & utiliser(std::ostream & log) { return log << nom << " [" << niveau << "]"; };
+      virtual ~Capacite() {};
+      virtual void utiliser(std::ostream & log) = 0;
 };
 
 // Materiel
@@ -72,9 +72,9 @@ class Materiel : public Capacite
 {
    public:
       Materiel(std::string const & n, int const & lvl) : Capacite(n, lvl) {};
-
       // Redéfinitions
-      virtual std::ostream & actionner(std::ostream & log) { return Capacite::utiliser(log) << " en action"; }
+      void utiliser(std::ostream & log) { actionner(log); }
+      void actionner(std::ostream & log) { log << nom << " [" << niveau << "]" << " en action"; }
 };
 
 // Physique
@@ -82,7 +82,8 @@ class Physique : public Capacite
 {
    public:
       Physique(std::string const & n, int const & lvl) : Capacite(n, lvl) {};
-      virtual std::ostream & exercer(std::ostream & log) { return Capacite::utiliser(log); }
+      void utiliser(std::ostream & log) { exercer(log); }
+      void exercer(std::ostream & log) { log << nom << " [" << niveau << "]"; }
 
 };
 
@@ -91,15 +92,10 @@ class Psychique : public Capacite
 {
    public:
       Psychique(std::string const & n, int const & lvl) : Capacite(n, lvl) {};
-      virtual std::ostream & penser(std::ostream & log) { return Capacite::utiliser(log); }
+      void utiliser(std::ostream & log) { penser(log); }
+      void penser(std::ostream & log) { log << nom << " [" << niveau << "]"; }
 
 };
-
-
-
-
-
-
 
 
 
