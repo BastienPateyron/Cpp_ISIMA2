@@ -16,8 +16,9 @@ bool operator==(Personne const & a, Personne const & b)
 std::ostream & operator<<(std::ostream & s, Personne const & p) { return p.afficher(s); }
 
 // Personne //
+Personne::Personne() {};
 Personne::Personne(std::string prenom, std::string nom, Personne::Genre genre) : nom(nom), prenom(prenom), genre(genre) {}
-
+// Personne::Personne(Personne const & p) : nom(p.nom), prenom(p.prenom), genre(p.genre) {};
 std::string Personne::afficherGenre() const
 {
    switch(genre)
@@ -31,7 +32,32 @@ std::string Personne::afficherGenre() const
 
 
 
+
 // Super //
+// Super::Super(Super const & s)
+// {
+//    nom       = s.nom;
+//    personne  = s.getIdentite(); 
+//    anonyme   = s.anonyme;
+//    capacites = s.capacites;
+// }
+
+// Super::~Super()
+// {
+//    std::cout << "Kill " << nom << std::endl;
+//    for(std::vector<Capacite const *>::iterator it = capacites.begin();
+//        it != capacites.end();
+//        it++
+//    )
+//    {
+//       std::cout << "Taille: " << capacites.size() << std::endl;
+//       puts("Delete");
+//       delete *it;
+//    }
+//    capacites.clear();
+//    puts("FIN");
+// }
+
 const Personne & Super::getIdentite() const
 {
    if(anonyme) throw AnonymeException();

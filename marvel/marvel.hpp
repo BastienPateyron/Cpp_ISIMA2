@@ -4,6 +4,7 @@
 #include <exception>
 #include <vector>
 #include <numeric>
+#include <algorithm>
 
 // Class forwarding //
 
@@ -44,6 +45,8 @@ class Personne
 class Super {
    public:
       Super(std::string nom, Personne p) : nom(nom), personne(p), anonyme(true) {}
+      // ~Super();
+      // Super(Super const & s);
 
       std::string       getNom()      const { return nom; }      
       bool              estAnonyme()  const { return anonyme; }
@@ -59,7 +62,8 @@ class Super {
       std::string                   nom;
       Personne                      personne;
       bool                          anonyme;
-      std::vector<Capacite const *> capacites;           
+      std::vector<Capacite const *> capacites;
+                 
 
    public:
 };
