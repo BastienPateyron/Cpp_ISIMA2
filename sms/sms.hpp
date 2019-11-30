@@ -21,7 +21,7 @@ class Telephone
       void        setNumero(std::string);
       Reseau *    getReseau() const;
 
-      bool operator<(Telephone const &);
+      // bool operator<(Telephone const &);
 };
 
 
@@ -35,7 +35,7 @@ class Reseau
    public:
       void        ajouter(std::string);
       std::string lister() const;
-      Telephone & trouveTel(std::string);    
+      Telephone trouveTel(std::string);    
 
 };
 
