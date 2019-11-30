@@ -1,19 +1,25 @@
 #ifndef __SMS
 #define __SMS
 #include <iostream>
-#include <list>
+#include <map>
 #include <numeric>
+
+class Reseau;
+
 
 class Telephone
 {
    private:
       std::string num;
+      Reseau * reseau;
    
    public:
       Telephone();
       Telephone(std::string);
+      Telephone(std::string, Reseau * r);
       std::string getNumero() const;
       void        setNumero(std::string);
+      Reseau *    getReseau() const;
 
       bool operator<(Telephone const &);
 };
@@ -23,11 +29,14 @@ class Telephone
 class Reseau
 {
    private:
-      std::list<Telephone> telephones;
+      std::map<std::string, Telephone> telephones;
+      typedef std::pair<std::string, Telephone> paire;     
    
    public:
-      void        ajouter(std::string const &);
-      std::string lister() const;         
+      void        ajouter(std::string);
+      std::string lister() const;
+      Telephone & trouveTel(std::string);    
+
 };
 
 

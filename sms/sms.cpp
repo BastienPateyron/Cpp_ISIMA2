@@ -5,14 +5,16 @@ std::string Telephone::getNumero() const {return num;}
 void        Telephone::setNumero(std::string num) {this->num = num;}
 Telephone::Telephone() {}
 Telephone::Telephone(std::string num) : num(num) {}
-bool Telephone::operator<(Telephone const & n) { return num < n.getNumero();}
+Telephone::Telephone(std::string num, Reseau * r) : num(num), reseau(r) {}
+bool     Telephone::operator<(Telephone const & n) { return num < n.getNumero();}
+Reseau * Telephone::getReseau() const {return reseau;}
 
 
 // Reseau
-void Reseau::ajouter(std::string const & num)
+void Reseau::ajouter(std::string num)
 {
-   telephones.push_back(Telephone(num));
-   telephones.sort();
+   telephones.insert( paire(num, Telephone(num, this)));
+   // telephones.sort();
 }
 
 std::string Reseau::lister() const
@@ -21,6 +23,8 @@ std::string Reseau::lister() const
       telephones.begin(),
       telephones.end(),
       std::string(""),
-      [] (std::string s, Telephone const & t) { return s += t.getNumero() + '\n' ;}
+      [] (std::string s, paire p) { return s += p.second.getNumero() + '\n' ;}
    );
 }
+
+Telephone & Reseau::trouveTel(std::string num) {return telephones[num];}
