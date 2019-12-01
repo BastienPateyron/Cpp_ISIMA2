@@ -39,6 +39,12 @@ class Reseau
 
 };
 
+class MauvaisNumero : public std::invalid_argument
+{
+   public:
+      MauvaisNumero();
+};
+
 
 
 #endif

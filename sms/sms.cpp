@@ -32,6 +32,9 @@ Telephone Reseau::trouveTel(std::string num)
    Telephone t;
    
    try {t = telephones.at(num);}
-   catch(const std::exception & e) { throw std::invalid_argument("");}
+   catch(const std::exception & e) {throw MauvaisNumero();}
    return t;
 }
+
+// Exception
+MauvaisNumero::MauvaisNumero() : std::invalid_argument("mauvais numero") {}

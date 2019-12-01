@@ -69,7 +69,6 @@ TEST_CASE("Reseau4") {
 
  CHECK_THROWS_AS("0473405070" == r.trouveTel("0473405070").getNumero(), std::invalid_argument);
 }
-/*
 
 TEST_CASE("Reseau5") {
   MauvaisNumero e;
@@ -83,6 +82,7 @@ TEST_CASE("Reseau6") {
   CHECK_THROWS_AS("0473405070" == r.trouveTel("0473405070").getNumero(), MauvaisNumero);
 }
 
+/*
 TEST_CASE("Telephone3") {
  const Telephone t;
 
