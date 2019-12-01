@@ -5,6 +5,7 @@
 #include <numeric>
 
 class Reseau;
+// class Telephone;
 
 
 class Telephone
@@ -14,9 +15,7 @@ class Telephone
       Reseau * reseau;
    
    public:
-      Telephone();
-      Telephone(std::string);
-      Telephone(std::string, Reseau * r);
+      Telephone(std::string = "", Reseau * r = nullptr);
       std::string getNumero() const;
       void        setNumero(std::string);
       Reseau *    getReseau() const;
@@ -35,7 +34,7 @@ class Reseau
    public:
       void        ajouter(std::string);
       std::string lister() const;
-      Telephone trouveTel(std::string);    
+      Telephone   trouveTel(std::string);    
 
 };
 

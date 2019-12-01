@@ -82,13 +82,13 @@ TEST_CASE("Reseau6") {
   CHECK_THROWS_AS("0473405070" == r.trouveTel("0473405070").getNumero(), MauvaisNumero);
 }
 
-/*
 TEST_CASE("Telephone3") {
  const Telephone t;
 
  CHECK( 0 == t.getReseau());
 }
 
+/*
 TEST_CASE("SMS1") {
 	SMS sms("0473405044", "0473405042", "20171207");
 	sms.setTexte("Examen en cours");
