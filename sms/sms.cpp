@@ -35,3 +35,16 @@ Telephone Reseau::trouveTel(std::string num)
 
 // Exception
 MauvaisNumero::MauvaisNumero() : std::invalid_argument("mauvais numero") {}
+
+// Message
+Message::Message(std::string e, std::string dest, std::string date) :
+   expediteur(e),
+   destinataire(dest),
+   date(date) 
+   {}
+
+// SMS
+SMS::SMS(std::string e, std::string dest, std::string date) : Message(e, dest, date) {} // Devrait appeler moman ??
+std::string & SMS::afficher() {return getTexte();}
+std::string & SMS::getTexte() {return texte;}
+void          SMS::setTexte(std::string t) { texte = t;}

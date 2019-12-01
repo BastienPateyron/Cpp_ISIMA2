@@ -88,13 +88,12 @@ TEST_CASE("Telephone3") {
  CHECK( 0 == t.getReseau());
 }
 
-/*
 TEST_CASE("SMS1") {
 	SMS sms("0473405044", "0473405042", "20171207");
 	sms.setTexte("Examen en cours");
 	CHECK("Examen en cours" == sms.getTexte());
 	CHECK("Examen en cours" == sms.afficher());
-} */
+}
 
 /*
 TEST_CASE("Message0") {

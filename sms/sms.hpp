@@ -45,5 +45,29 @@ class MauvaisNumero : public std::invalid_argument
 };
 
 
+class Message
+{
+   private:
+      std::string expediteur;      
+      std::string destinataire;
+      std::string date;
+
+   public:
+      Message(std::string = "", std::string = "", std::string = "");
+      virtual std::string & afficher() = 0;      
+};
+
+class SMS : public Message
+{
+   private:
+      std::string texte;
+   
+   public:
+      SMS(std::string = "", std::string = "", std::string = "");
+      std::string & afficher();
+      std::string & getTexte();
+      void          setTexte(std::string);
+   
+};
 
 #endif
