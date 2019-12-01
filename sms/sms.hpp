@@ -51,10 +51,15 @@ class Message
       std::string expediteur;      
       std::string destinataire;
       std::string date;
+      int         id;
+      static int  cle;
 
    public:
       Message(std::string = "", std::string = "", std::string = "");
-      virtual std::string & afficher() = 0;      
+      virtual ~Message();
+      virtual std::string & afficher() = 0;
+      int        getId()  const;
+      static int getCle();      
 };
 
 class SMS : public Message
@@ -64,6 +69,7 @@ class SMS : public Message
    
    public:
       SMS(std::string = "", std::string = "", std::string = "");
+      ~SMS();
       std::string & afficher();
       std::string & getTexte();
       void          setTexte(std::string);
