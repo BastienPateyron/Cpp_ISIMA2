@@ -3,22 +3,26 @@
 #include <iostream>
 #include <map>
 #include <numeric>
+#include <vector>
 
 class Reseau;
+class Message;
 // class Telephone;
 
 
 class Telephone
 {
    private:
-      std::string num;
-      Reseau * reseau;
-   
+      std::string             num;
+      Reseau *                reseau;
+      std::vector<Message *>  messages;
+      
    public:
       Telephone(std::string = "", Reseau * r = nullptr);
       std::string getNumero() const;
       void        setNumero(std::string);
       Reseau *    getReseau() const;
+      int         getNbMessages() const;
 
       // bool operator<(Telephone const &);
 };

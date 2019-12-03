@@ -112,13 +112,13 @@ TEST_CASE("Message1") {
 
  delete sms1;
 }
-/*
 
 TEST_CASE("Telephone4") {
 	const Telephone t;
 
   CHECK( 0 == t.getNbMessages());
 }
+/*
 
 TEST_CASE("SMS2") {
 	MON_RESEAU;

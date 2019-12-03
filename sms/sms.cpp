@@ -7,8 +7,9 @@ int Message::cle = 0;   // Variable statique
 // Telephone
 std::string Telephone::getNumero() const {return num;}
 void        Telephone::setNumero(std::string num) {this->num = num;}
-Telephone::Telephone(std::string num, Reseau * r) : num(num), reseau(r) {}
+Telephone::Telephone(std::string num, Reseau * r) : num(num), reseau(r){}
 Reseau * Telephone::getReseau() const {return reseau;}
+int Telephone::getNbMessages() const {return messages.size();}
 
 
 // Reseau
