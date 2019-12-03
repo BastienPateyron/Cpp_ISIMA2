@@ -35,13 +35,16 @@ std::string Reseau::lister() const
    );
 }
 
-Telephone Reseau::trouveTel(std::string num)
+Telephone & Reseau::trouveTel(std::string num)
 {
-   Telephone t;
+   // Telephone t;
    
-   try {t = telephones.at(num);}
+   try 
+   {
+      Telephone & t = telephones.at(num);
+      return t;
+   }
    catch(const std::exception & e) {throw MauvaisNumero();}
-   return t;
 }
 
 // Exception

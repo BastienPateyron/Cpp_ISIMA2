@@ -39,7 +39,7 @@ class Reseau
    public:
       void        ajouter(std::string);
       std::string lister() const;
-      Telephone   trouveTel(std::string);    
+      Telephone & trouveTel(std::string);    
 
 };
 
