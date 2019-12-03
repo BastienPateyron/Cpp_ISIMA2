@@ -10,6 +10,12 @@ void        Telephone::setNumero(std::string num) {this->num = num;}
 Telephone::Telephone(std::string num, Reseau * r) : num(num), reseau(r){}
 Reseau * Telephone::getReseau() const {return reseau;}
 int Telephone::getNbMessages() const {return messages.size();}
+void  Telephone::textoter(std::string destinataire, std::string msg)
+{
+  SMS * texto = new SMS(num, destinataire);
+  texto->setTexte(msg);
+  messages.push_back(texto);
+}
 
 
 // Reseau

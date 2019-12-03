@@ -23,6 +23,7 @@ class Telephone
       void        setNumero(std::string);
       Reseau *    getReseau() const;
       int         getNbMessages() const;
+      void        textoter(std::string destinataire, std::string msg);
 
       // bool operator<(Telephone const &);
 };
