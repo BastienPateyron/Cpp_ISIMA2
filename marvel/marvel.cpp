@@ -50,7 +50,11 @@ Super::~Super()
       v_capa::iterator it = capacites.begin();
        it != capacites.end();
        it++
-   )   delete *it;
+   ) 
+   {
+      std::cout << "  Kill " << (*it)->getNom() << std::endl;
+      delete *it;
+   }
    capacites.clear();
 }
 
