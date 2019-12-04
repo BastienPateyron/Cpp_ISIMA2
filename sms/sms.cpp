@@ -22,7 +22,7 @@ std::string Reseau::lister() const {
 void Reseau::ajouter(std::string num) {telephones.insert(paire(num, Telephone(num, this)));}
 Telephone & Reseau::trouveTel(std::string num) {
    try {return telephones.at(num);}
-   catch(std::exception const & e) {throw std::invalid_argument("");}
+   catch(std::exception const & e) {throw MauvaisNumero();}
 }
 
 // Exception //
