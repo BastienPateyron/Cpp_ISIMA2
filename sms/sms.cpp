@@ -24,3 +24,7 @@ Telephone & Reseau::trouveTel(std::string num) {
    try {return telephones.at(num);}
    catch(std::exception const & e) {throw std::invalid_argument("");}
 }
+
+// Exception //
+MauvaisNumero::MauvaisNumero() : std::invalid_argument("mauvais numero") {}
+// const char * MauvaisNumero::what() { return "mauvais numero"; }

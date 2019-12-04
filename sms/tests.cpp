@@ -70,13 +70,13 @@ TEST_CASE("Reseau4") {
  CHECK_THROWS_AS("0473405070" == r.trouveTel("0473405070").getNumero(), std::invalid_argument);
 }
 
-/*
 TEST_CASE("Reseau5") {
   MauvaisNumero e;
 
   CHECK(strcmp("mauvais numero", e.what()) == 0 );
 }
 
+/*
 TEST_CASE("Reseau6") {
   MON_RESEAU;
 
