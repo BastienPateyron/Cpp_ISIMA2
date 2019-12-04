@@ -126,6 +126,25 @@ class Psychique : public Capacite
 };
 
 
+class Equipe
+{
+   typedef std::vector<Super *> v_super;
+
+   private:
+      std::string nom;
+      v_super     membres;
+
+   
+   public:
+      Equipe(std::string);
+      ~Equipe();
+
+      std::string getNom() const;
+      int         getNombre() const;
+      int         getNiveau() const;
+      void        ajouter(Super * s);
+};
+
 
 
 // Fonctions

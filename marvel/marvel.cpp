@@ -30,9 +30,6 @@ std::string Personne::afficherGenre() const
    } 
 }
 
-
-
-
 // Super //
 Super::Super(Super const & s)
 {
@@ -43,7 +40,7 @@ Super::Super(Super const & s)
       it++
    ) 
    {
-      capacites.push_back( (*it)->clone());
+      capacites.push_back( (*it)->clone() );
    }
 }
 
@@ -78,10 +75,35 @@ int Super::getNiveau() const
 }
 
 
-// Capacite::Capacite(Capacite const & c) : nom(c.getNom()), niveau(c.getNiveau()) {}
-
 Materiel * Materiel::clone() const {return new Materiel(*this);}
 Physique * Physique::clone() const {return new Physique(*this);}
 Psychique * Psychique::clone() const {return new Psychique(*this);}
 
+
+// Equipe //
+Equipe::Equipe(std::string s) : nom(s) {}
+Equipe::~Equipe()
+{
+   for(
+      v_super::iterator it = membres.begin();
+      it != membres.end();
+      it++
+   ) delete *it;
+
+   membres.clear();
+}
+
+std::string Equipe::getNom() const { return nom;}
+int         Equipe::getNombre() const { return membres.size();}
+int Equipe::getNiveau() const
+{
+   return std::accumulate(
+      membres.begin(),
+      membres.end(),
+      0,
+      [] (int lvl, Super * s) { return lvl + s->getNiveau();}
+   );
+}
+
+void Equipe::ajouter(Super * s) {membres.push_back(s);}
 
