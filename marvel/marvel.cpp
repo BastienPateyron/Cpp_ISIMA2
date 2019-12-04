@@ -34,29 +34,25 @@ std::string Personne::afficherGenre() const
 
 
 // Super //
-// Super::Super(Super const & s)
-// {
-//    nom       = s.nom;
-//    personne  = s.getIdentite(); 
-//    anonyme   = s.anonyme;
-//    capacites = s.capacites;
-// }
+Super::Super(Super const & s) : nom(s.nom), personne(s.getIdentite()), anonyme(s.anonyme)
+{
+   for (
+      v_capa::const_iterator it = s.capacites.begin();
+      it != s.capacites.end();
+      it++
+   ) capacites.push_back( (*it)->clone());
+}
 
-// Super::~Super()
-// {
-//    std::cout << "Kill " << nom << std::endl;
-//    for(std::vector<Capacite const *>::iterator it = capacites.begin();
-//        it != capacites.end();
-//        it++
-//    )
-//    {
-//       std::cout << "Taille: " << capacites.size() << std::endl;
-//       puts("Delete");
-//       delete *it;
-//    }
-//    capacites.clear();
-//    puts("FIN");
-// }
+Super::~Super()
+{
+   std::cout << "Kill " << nom << std::endl;
+   for(
+      v_capa::iterator it = capacites.begin();
+       it != capacites.end();
+       it++
+   )   delete *it;
+   capacites.clear();
+}
 
 const Personne & Super::getIdentite() const
 {
@@ -73,9 +69,11 @@ int Super::getNiveau() const
       [] (int i,  Capacite const * c) { return c->getNiveau() + i; } ); // Lambda qui accumule dans i la valeur des niveaux de la liste
 }
 
-Materiel *  Materiel::clone() const
-{
-   Materiel * m = new Materiel(*this);
 
-   return m;
-}
+// Capacite::Capacite(Capacite const & c) : nom(c.getNom()), niveau(c.getNiveau()) {}
+
+Materiel * Materiel::clone() const {return new Materiel(*this);}
+Physique * Physique::clone() const {return new Physique(*this);}
+Psychique * Psychique::clone() const {return new Psychique(*this);}
+
+

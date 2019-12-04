@@ -43,10 +43,13 @@ class Personne
 
 
 class Super {
+
+   typedef std::vector<Capacite *> v_capa;
+
    public:
       Super(std::string nom, Personne p) : nom(nom), personne(p), anonyme(true) {}
-      // ~Super();
-      // Super(Super const & s);
+      ~Super();
+      Super(Super const & s);
 
       std::string       getNom()      const { return nom; }      
       bool              estAnonyme()  const { return anonyme; }
@@ -57,13 +60,13 @@ class Super {
       void enregistrer() { anonyme = false; }
       void setNom(std::string const s)     {nom = s;}
       void setIdentite(Personne const & p) {anonyme = true; personne = p;}
-      void ajouter(Capacite const * c)     {capacites.push_back(c);}
+      void ajouter(Capacite * c)     {capacites.push_back(c);}
 
    private:
       std::string                   nom;
       Personne                      personne;
       bool                          anonyme;
-      std::vector<Capacite const *> capacites;
+      v_capa                        capacites;
                  
 
    public:
@@ -81,13 +84,14 @@ class Capacite
 
    public:
       Capacite(std::string const & n, int const & lvl) : nom(n), niveau(lvl) {};
+      // Capacite(Capacite const & c);
       virtual ~Capacite() {};
+      virtual Capacite * clone() const                = 0;
       virtual void       utiliser(std::ostream & log) = 0;
-      virtual Capacite * clone()     const { return nullptr;};
       int                getNiveau() const { return niveau; }
       std::string        getNom()    const { return nom; }
-      
 };
+         
 
 // Materiel
 class Materiel : public Capacite
@@ -106,6 +110,7 @@ class Physique : public Capacite
       Physique(std::string const & n, int const & lvl) : Capacite(n, lvl) {};
       void utiliser(std::ostream & log) { exercer(log); }
       void exercer(std::ostream & log) { log << nom << " [" << niveau << "]"; }
+      Physique *  clone() const;
 
 };
 
@@ -116,6 +121,7 @@ class Psychique : public Capacite
       Psychique(std::string const & n, int const & lvl) : Capacite(n, lvl) {};
       void utiliser(std::ostream & log) { penser(log); }
       void penser(std::ostream & log) { log << nom << " [" << niveau << "]"; }
+      Psychique *  clone() const;
 
 };
 

@@ -12,9 +12,24 @@ Reseau * Telephone::getReseau() const {return reseau;}
 int Telephone::getNbMessages() const {return messages.size();}
 void  Telephone::textoter(std::string destinataire, std::string msg)
 {
-  SMS * texto = new SMS(num, destinataire);
-  texto->setTexte(msg);
-  messages.push_back(texto);
+   SMS * texto_local = new SMS(num, destinataire);
+   SMS * texto_cible = new SMS(num, destinataire);
+   texto_local->setTexte(msg);
+   texto_cible->setTexte(msg);
+
+   messages.push_back(texto_local);
+   reseau->trouveTel(destinataire).messages.push_back(texto_cible);
+}
+
+Telephone::~Telephone()
+{
+   for(
+      std::vector<Message *>::iterator it = messages.begin();
+      it != messages.end();
+      ++it
+   ) delete * it;
+   
+   messages.clear();
 }
 
 
