@@ -8,6 +8,7 @@
 class Reseau;
 class Message;
 // class Telephone;
+class MMS;
 
 
 class Telephone
@@ -25,6 +26,7 @@ class Telephone
       Reseau *    getReseau() const;
       int         getNbMessages() const;
       void        textoter(std::string destinataire, std::string msg);
+      void        mmser(std::string destinataire, MMS * mms);
 
       // bool operator<(Telephone const &);
 };
@@ -64,8 +66,11 @@ class Message
       Message(std::string = "", std::string = "", std::string = "");
       virtual ~Message();
       virtual std::string afficher() const = 0;
-      int        getId()  const;
-      static int getCle();      
+      int         getId()  const;
+      static int  getCle();
+      // void        setInfos( std::string =, std::string =, std::string = );
+      std::string getDe() const;
+      std::string getA()   const;    
 };
 
 class SMS : public Message
@@ -86,25 +91,29 @@ class Media {
 
    public:
       virtual std::string afficher() const = 0;
+      virtual Media *     copy() const = 0;
       virtual ~Media();
 };
 
 class Son : public Media {
 
    public:
-      virtual std::string afficher() const;   
+      virtual std::string afficher() const;
+      virtual Son * copy() const;   
 };
 
 class Video : public Media {
 
    public:
       virtual std::string afficher() const;
+      virtual Video * copy() const;
 };
 
 class Image : public Media {
 
    public:
       virtual std::string afficher() const;
+      virtual Image * copy() const;
 };
 
 class MMS : public SMS
@@ -115,7 +124,8 @@ class MMS : public SMS
       v_media medias;
 
    public:
-      MMS(std::string e, std::string dest, std::string date);
+      MMS(std::string e = "", std::string dest = "", std::string date = "");
+      MMS(MMS const * mms);
       ~MMS();
       void joindre(Media const *);
       std::string afficher() const;

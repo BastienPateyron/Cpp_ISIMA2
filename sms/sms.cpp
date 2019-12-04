@@ -38,6 +38,20 @@ Telephone::~Telephone()
    messages.clear();
 }
 
+void Telephone::mmser(std::string destinataire, MMS * mms)
+{
+   // Ajouter le MMS en local
+   *mms = MMS(num, destinataire);
+
+   messages.push_back(mms);
+
+   // Ajouter le MMS au destinataire
+   try {
+      reseau->trouveTel(destinataire).messages.push_back(new MMS(mms));
+   }
+   catch (MauvaisNumero const & e) {std::cout << "Mauvais Numero detectaid" << std::endl;}
+}
+
 
 // Reseau
 void Reseau::ajouter(std::string num)
@@ -64,6 +78,7 @@ Telephone & Reseau::trouveTel(std::string num)
    catch(const std::exception & e) {throw MauvaisNumero();}
 }
 
+
 // Exception
 MauvaisNumero::MauvaisNumero() : std::invalid_argument("mauvais numero") {}
 
@@ -79,6 +94,8 @@ Message::~Message() {Message::cle--;}
 
 int Message::getId()  const {return id;}
 int Message::getCle()       {return Message::cle;}
+std::string Message::getDe() const {return expediteur;}
+std::string Message::getA()   const {return destinataire;}
 
 
 // SMS
@@ -86,7 +103,7 @@ SMS::SMS(std::string e, std::string dest, std::string date) : Message(e, dest, d
 SMS::~SMS() {}
 std::string SMS::afficher() const {return getTexte();}
 std::string SMS::getTexte() const {return texte;}
-void          SMS::setTexte(std::string t) { texte = t;}
+void        SMS::setTexte(std::string t) { texte = t;}
 
 // Media
 Media::~Media() {};
@@ -96,12 +113,24 @@ std::string Image::afficher() const {return "[[image]]";}
 
 // MMS
 MMS::MMS(std::string e, std::string dest, std::string date) : SMS(e, dest, date) {}
+MMS::MMS(MMS const * mms)
+{
+   for(
+      v_media::const_iterator it = mms->medias.begin();
+      it != mms->medias.end();
+      it++
+   ) medias.push_back( (*it)->copy() );
+}
+
+
 MMS::~MMS(){
    for(
       v_media::iterator it = medias.begin();
       it != medias.end();
       it++   
    ) delete (*it);
+
+   // TODO Clear
 };
 
 void MMS::joindre(Media const * m) {medias.push_back(m);}
@@ -115,3 +144,7 @@ std::string MMS::afficher() const
              [] (std::string s, Media const * m) { return s += m->afficher();}
           );
 }
+
+Son * Son::copy() const { return new Son(*this); }
+Image * Image::copy() const { return new Image(*this); }
+Video * Video::copy() const { return new Video(*this); }
