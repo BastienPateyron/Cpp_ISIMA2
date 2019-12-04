@@ -49,7 +49,6 @@ TEST_CASE("Reseau2") {
  CHECK ("0473405000\n0473405042\n0473407632\n" == r.lister());
 }
 
-/*
 // C'est bien pourri mais permet d'initialiser r
 #define MON_RESEAU \
 Reseau r;\
@@ -71,6 +70,7 @@ TEST_CASE("Reseau4") {
  CHECK_THROWS_AS("0473405070" == r.trouveTel("0473405070").getNumero(), std::invalid_argument);
 }
 
+/*
 TEST_CASE("Reseau5") {
   MauvaisNumero e;
 

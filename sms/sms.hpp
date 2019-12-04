@@ -5,17 +5,19 @@
 // #include <algorithm>
 #include <numeric>
 
-
+class Reseau;
 
 class Telephone {
    private:
       std::string num;
+      Reseau * r;
 
    public:
       Telephone();
-      Telephone(std::string);
+      Telephone(std::string, Reseau * r = nullptr);
       std::string getNumero() const;
       void setNumero(std::string);
+      Reseau * getReseau() const;
 };
 
 
@@ -30,6 +32,7 @@ class Reseau {
    public:
       std::string lister() const;
       void ajouter(std::string);
+      Telephone & trouveTel(std::string);
 };
 
 

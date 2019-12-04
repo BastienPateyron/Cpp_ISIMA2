@@ -5,7 +5,8 @@
 std::string Telephone::getNumero() const {return num;}
 void Telephone::setNumero(std::string n) {num = n;}
 Telephone::Telephone() {}
-Telephone::Telephone(std::string n) : num(n) {}
+Telephone::Telephone(std::string n, Reseau * reseau) : num(n), r(reseau) {}
+Reseau * Telephone::getReseau() const {return r;}
 
 
 // Réseau //
@@ -18,4 +19,8 @@ std::string Reseau::lister() const {
    );
 }
 
-void Reseau::ajouter(std::string num) {telephones.insert(paire(num, Telephone(num)));}
+void Reseau::ajouter(std::string num) {telephones.insert(paire(num, Telephone(num, this)));}
+Telephone & Reseau::trouveTel(std::string num) {
+   try {return telephones.at(num);}
+   catch(std::exception const & e) {throw std::invalid_argument("");}
+}
