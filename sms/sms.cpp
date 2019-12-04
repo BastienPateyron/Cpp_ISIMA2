@@ -130,7 +130,7 @@ MMS::~MMS(){
       it++   
    ) delete (*it);
 
-   // TODO Clear
+   medias.clear();
 };
 
 void MMS::joindre(Media const * m) {medias.push_back(m);}
