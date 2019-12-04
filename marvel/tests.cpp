@@ -137,12 +137,8 @@ TEST_CASE("Capacite2") {
     wolf.ajouter(new Materiel("squelette adamantium", 50));
     REQUIRE(100 == wolf.getNiveau());
 
-
-    std::cout << "Before" << std::endl;
     Super rien = wolf;   // Fuite memoire ici, il faut free mais le constructeur de copie copie l'adresse
     wolf.ajouter(new Physique("force", 10));
-    std::cout << "After" << std::endl;
-    
 
     REQUIRE(110 == wolf.getNiveau());
     REQUIRE(100 == rien.getNiveau());

@@ -34,13 +34,17 @@ std::string Personne::afficherGenre() const
 
 
 // Super //
-Super::Super(Super const & s) : nom(s.nom), personne(s.getIdentite()), anonyme(s.anonyme)
+Super::Super(Super const & s)
 {
+   std::cout << "Super Copie" << std::endl;
    for (
       v_capa::const_iterator it = s.capacites.begin();
       it != s.capacites.end();
       it++
-   ) capacites.push_back( (*it)->clone());
+   ) 
+   {
+      capacites.push_back( (*it)->clone());
+   }
 }
 
 Super::~Super()
