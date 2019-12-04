@@ -177,7 +177,6 @@ TEST_CASE("MMS1") {
   delete m1;  
 }
 
-/*
 TEST_CASE("MMS2") {
 	MMS * m1 = new MMS("", "", "");
   CHECK("" == m1->afficher());
@@ -194,6 +193,7 @@ TEST_CASE("MMS2") {
     // espace memoire correctement libere ?    
 }
 
+/*
 TEST_CASE("MMS3") {
 	MON_RESEAU;
 
