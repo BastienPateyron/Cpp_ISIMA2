@@ -71,6 +71,8 @@ class Message
       // void        setInfos( std::string =, std::string =, std::string = );
       std::string getDe() const;
       std::string getA()   const;    
+      void        setDe(std::string De);
+      void        setA(std::string A);    
 };
 
 class SMS : public Message

@@ -41,7 +41,8 @@ Telephone::~Telephone()
 void Telephone::mmser(std::string destinataire, MMS * mms)
 {
    // Ajouter le MMS en local
-   *mms = MMS(num, destinataire);
+   mms->setDe(num);
+   mms->setA(destinataire);
 
    messages.push_back(mms);
 
@@ -72,8 +73,6 @@ std::string Reseau::lister() const
 
 Telephone & Reseau::trouveTel(std::string num)
 {
-   // Telephone t;
-   
    try { return telephones.at(num); }
    catch(const std::exception & e) {throw MauvaisNumero();}
 }
@@ -96,6 +95,8 @@ int Message::getId()  const {return id;}
 int Message::getCle()       {return Message::cle;}
 std::string Message::getDe() const {return expediteur;}
 std::string Message::getA()   const {return destinataire;}
+void  Message::setDe(std::string De) {expediteur = De;}
+void  Message::setA(std::string A)  {destinataire = A;}    
 
 
 // SMS

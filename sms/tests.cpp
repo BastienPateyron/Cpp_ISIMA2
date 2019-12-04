@@ -206,6 +206,7 @@ TEST_CASE("MMS3") {
   mms->joindre(new Video);
 
   de->mmser("0473407632", mms);
+  CHECK("[[video]]" == mms->afficher());
 
   CHECK("0473405042" == mms->getDe());
   CHECK("0473407632" == mms->getA());    
