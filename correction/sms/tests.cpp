@@ -5,16 +5,15 @@
 
 
 TEST_CASE("telephone1a") {
-/* Telephone iphone;
+ Telephone iphone;
  const char * isima = "0473405000";
 
  CHECK( "" == iphone.getNumero());
  iphone.setNumero(isima);
- CHECK( isima == iphone.getNumero()); */
+ CHECK( isima == iphone.getNumero());
 }
 
 
-/*
 TEST_CASE("telephone1b") {
  std::string loic = "0473405042";
  Telephone   iphone(loic);
@@ -94,7 +93,7 @@ TEST_CASE("SMS1") {
 	sms.setTexte("Examen en cours");
 	CHECK("Examen en cours" == sms.getTexte());
 	CHECK("Examen en cours" == sms.afficher());
-} */
+}
 
 /*
 TEST_CASE("Message0") {
@@ -102,7 +101,6 @@ TEST_CASE("Message0") {
    // si ca compile, c'est perdu ...
 } */
 
-/*
 TEST_CASE("Message1") {
  int nb = Message::getCle();
  Message * sms1 = new SMS("", "", "");
@@ -208,6 +206,7 @@ TEST_CASE("MMS3") {
   mms->joindre(new Video);
 
   de->mmser("0473407632", mms);
+  CHECK("[[video]]" == mms->afficher());
 
   CHECK("0473405042" == mms->getDe());
   CHECK("0473407632" == mms->getA());    
@@ -215,4 +214,6 @@ TEST_CASE("MMS3") {
   CHECK(1 == de->getNbMessages());
   CHECK(1 ==  a->getNbMessages());
 
-} */
+} 
+/*
+*/

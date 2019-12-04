@@ -1,0 +1,51 @@
+SMS
+----
+On va donc implémenter ce qui se passe grossièrement dans l'échange d'un message entre deux téléphones quand on écrit et échange des SMS
+
+Le code que vous allez rendre doit COMPILER !!! 
+Ne recommentez pas un code décommenté qui marche. A la fin, le maxime de tests doivent fonctionner en même temps (sauf celui qui ne doit pas marcher)
+Avant de vous lancer dans le codage, lisez une fois entièrement cet énoncé et le fichier de tests.
+Certaines questions sont indépendants des autres.
+
+Bon courage
+
+----------
+
+1/ Créer une classe Téléphone dont l'attribut principal est un numéro de téléphone
+Tests : telephone1, telephone2
+
+2/ Un réseau gère les téléphones. On peut créer des téléphones en donnant les numéros et surtout, on peut lister les téléphones sur le réseau
+Test : Reseau1
+
+3/ La liste affichée des téléphones est d'ailleurs ordonnée
+Test : Reseau2
+
+4/ On peut obtenir un téléphone du réseau connaissant le numéro de téléphone. Un téléphone sait également sur quel réseau il opère
+Tests : Reseau3 Telephone3
+
+5/ Si le numéro demandé sur le réseau est inconnu, on obtient l'exception standard  invalid_argument
+Test : Reseau4 puis une exception personnalisée Reseau5 et Reseau6
+
+Créer une classe Message abstraite, celle-ci a pour attributs des chaines de caractères de (expediteur), a(destinataire) et date :-) et une méthode abstraite afficher()
+
+6/ Un SMS est un message avec une zone de texte de longeur maximale de 160 caractères (mieux que twitter v1, non ?)
+Test : SMS1
+
+7/ Chaque message est connu grâce à un indentifiant unique, pour le coder il faut deux attributs : un id (fixé à la construction et non modifiable) et une clé qui s'incrémente à chaque fois qu'un message est créé (attribut de classe :-))
+Test : Message1
+
+8/ Un telephone contient la liste des messages reçus et envoyes. On considere dans un premier temps uniquement le nombre de messages dans cette liste.
+Test : Telephone4
+
+9/ On peut envoyer un SMS d'un téléphone à un autre, voire meme se tromper :-)
+Tests : SMS2, SMS3
+
+10/ Un MMS est un message et SMS enrichi qui peut embarquer des Media (son, video, image).
+Media est une classe abstraite
+Tests : Media0, Media1, MMS1, MMS2
+
+11/ Un MMS peut etre envoyé sur le réseau
+Test : MMS3
+
+C'est tout pour aujourd'hui ! 
+Ne jetez pas vos téléphones en sortant de la salle :-)
