@@ -44,7 +44,7 @@ class Personne
 
 class Super {
 
-   typedef std::vector<Capacite *> v_capa;
+   typedef std::vector<Capacite const *> v_capa;
 
    public:
       Super(std::string nom, Personne p) : nom(nom), personne(p), anonyme(true) {}
@@ -60,7 +60,7 @@ class Super {
       void enregistrer() { anonyme = false; }
       void setNom(std::string const s)     {nom = s;}
       void setIdentite(Personne const & p) {anonyme = true; personne = p;}
-      void ajouter(Capacite * c)     {capacites.push_back(c);}
+      void ajouter(Capacite const * c)     {capacites.push_back(c);}
 
    private:
       std::string                   nom;

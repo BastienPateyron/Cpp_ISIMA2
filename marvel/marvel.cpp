@@ -36,7 +36,7 @@ std::string Personne::afficherGenre() const
 // Super //
 Super::Super(Super const & s)
 {
-   std::cout << "Super Copie" << std::endl;
+   // std::cout << "Super Copie" << std::endl;
    for (
       v_capa::const_iterator it = s.capacites.begin();
       it != s.capacites.end();
@@ -49,14 +49,14 @@ Super::Super(Super const & s)
 
 Super::~Super()
 {
-   std::cout << "Kill " << nom << std::endl;
+   // std::cout << "Kill " << nom << std::endl;
    for(
       v_capa::iterator it = capacites.begin();
        it != capacites.end();
        it++
    ) 
    {
-      std::cout << "  Kill " << (*it)->getNom() << std::endl;
+      // std::cout << "  Kill " << (*it)->getNom() << std::endl;
       delete *it;
    }
    capacites.clear();

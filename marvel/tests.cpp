@@ -143,7 +143,6 @@ TEST_CASE("Capacite2") {
     REQUIRE(110 == wolf.getNiveau());
     REQUIRE(100 == rien.getNiveau());
 }
-/*
 
 TEST_CASE("Capacite3") {
     Capacite * m1 = new Materiel("Anneau", 5);
@@ -177,6 +176,7 @@ TEST_CASE("Super3") {
     REQUIRE ( 10 == warm.getNiveau());
 }
 
+/*
 TEST_CASE("Equipe") {
     Equipe vengeurs("vengeurs");
     REQUIRE ( 0 == vengeurs.getNombre());
