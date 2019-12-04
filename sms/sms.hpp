@@ -63,7 +63,7 @@ class Message
    public:
       Message(std::string = "", std::string = "", std::string = "");
       virtual ~Message();
-      virtual std::string & afficher() = 0;
+      virtual std::string afficher() const = 0;
       int        getId()  const;
       static int getCle();      
 };
@@ -76,10 +76,49 @@ class SMS : public Message
    public:
       SMS(std::string = "", std::string = "", std::string = "");
       ~SMS();
-      std::string & afficher();
-      std::string & getTexte();
-      void          setTexte(std::string);
+      std::string afficher() const;
+      std::string getTexte() const;
+      void        setTexte(std::string);
    
+};
+
+class Media {
+
+   public:
+      virtual std::string afficher() const = 0;
+      virtual ~Media();
+};
+
+class Son : public Media {
+
+   public:
+      virtual std::string afficher() const;   
+};
+
+class Video : public Media {
+
+   public:
+      virtual std::string afficher() const;
+};
+
+class Image : public Media {
+
+   public:
+      virtual std::string afficher() const;
+};
+
+class MMS : public SMS
+{
+   typedef std::vector<Media const *> v_media;
+
+   private:
+      v_media medias;
+
+   public:
+      MMS(std::string e, std::string dest, std::string date);
+      ~MMS();
+      void joindre(Media const *);
+      std::string afficher() const;
 };
 
 #endif

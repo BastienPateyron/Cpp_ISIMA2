@@ -136,7 +136,6 @@ TEST_CASE("SMS2") {
 
 }
 
-/*
 TEST_CASE("SMS3") {
 	MON_RESEAU;
 
@@ -178,6 +177,7 @@ TEST_CASE("MMS1") {
   delete m1;  
 }
 
+/*
 TEST_CASE("MMS2") {
 	MMS * m1 = new MMS("", "", "");
   CHECK("" == m1->afficher());
