@@ -4,7 +4,6 @@
 // Téléphone //
 std::string Telephone::getNumero() const {return num;}
 void Telephone::setNumero(std::string n) {num = n;}
-Telephone::Telephone() {}
 Telephone::Telephone(std::string n, Reseau * reseau) : num(n), r(reseau) {}
 Reseau * Telephone::getReseau() const {return r;}
 

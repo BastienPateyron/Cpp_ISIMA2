@@ -13,8 +13,7 @@ class Telephone {
       Reseau * r;
 
    public:
-      Telephone();
-      Telephone(std::string, Reseau * r = nullptr);
+      Telephone(std::string = "", Reseau * r = nullptr);
       std::string getNumero() const;
       void setNumero(std::string);
       Reseau * getReseau() const;
