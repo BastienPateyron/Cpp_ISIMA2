@@ -16,6 +16,8 @@ class Personne {
       std::ostream & afficher(std::ostream & s) const {return s << prenom << " " << nom << " " << afficherGenre();}
       Str afficherGenre() const;
       static Personne INCONNU;
+
+      // std::ostream & operator<<(std::ostream & s) {return afficher(s);}
           
 
    private:
@@ -29,6 +31,8 @@ class Personne {
 
 // Operateurs //
 bool operator==(Personne const & a, Personne const & b);
+std::ostream & operator<<(std::ostream & s, Personne const & p);
+
 
 
 
