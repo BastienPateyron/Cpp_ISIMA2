@@ -21,7 +21,6 @@ TEST_CASE("Personne2") {
     REQUIRE( "Prince"         == p.getNom());
     REQUIRE( Personne::FEMME  == p.getGenre());
 }
-/*
 
 TEST_CASE("Personne3") {
     Personne sorciere("Wanda", "Maximof", Personne::FEMME);
@@ -30,6 +29,7 @@ TEST_CASE("Personne3") {
     REQUIRE("Wanda Maximof [FEMME]" == ss.str() );
 } 
 
+/*
 TEST_CASE("Inconnu1") {
     REQUIRE("Inconnu"             == Personne::INCONNU.getNom());
     REQUIRE("Inconnu"             == Personne::INCONNU.getPrenom());
