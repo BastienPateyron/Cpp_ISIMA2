@@ -35,6 +35,7 @@ class Super {
       Str nom;
       bool anonyme;
       Personne identite;
+      std::vector<Capacite> capacites;
 
    public:
       Super(Str nom, Personne p = Personne::INCONNU) : nom(nom), anonyme(true), identite(p) {}
