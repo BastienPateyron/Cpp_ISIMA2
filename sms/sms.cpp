@@ -26,6 +26,18 @@ void Telephone::textoter(Str a, Str txt) {
    try {r->trouveTel(a).messages.push_back(new SMS(local));} // Copie du SMS local
    catch(MauvaisNumero const & e) {}
 }
+void Telephone::mmser(Str a, MMS * mms) {
+   // Set du mms
+   mms->de = num;
+   mms->a = a;
+
+   // Copie locale
+   messages.push_back(mms);
+
+   // Copie distante
+   r->trouveTel(a).messages.push_back(new MMS(mms));
+
+}
 
 // Réseau //
 Str Reseau::lister() const {
@@ -68,6 +80,14 @@ Str SMS::afficher() const {return getTexte();}
 
 // MMS //
 MMS::MMS(Str de , Str a, Str date) : SMS(de, a, date) {}
+MMS::MMS(MMS const * mms) {
+   for (
+      std::vector<Media *>::const_iterator it = mms->medias.begin();
+      it != mms->medias.end();
+      it++
+   ) medias.push_back(*it);
+}
+
 MMS::~MMS() {
    for(
       std::vector<Media *>::iterator it = medias.begin();
@@ -77,6 +97,7 @@ MMS::~MMS() {
 
    medias.clear();
 }
+
 Str MMS::afficher() const {
    return std::accumulate(
       medias.begin(),
@@ -85,7 +106,9 @@ Str MMS::afficher() const {
       [] (Str s, Media * m) { return s += m->afficher();}
    );
 }
+
 void MMS::joindre(Media * m) {medias.push_back(m);}
+
 
 
 // Media //
