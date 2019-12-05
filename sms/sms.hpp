@@ -20,6 +20,7 @@ class Telephone {
 
    public:
       Telephone(Str = "", Reseau * r = nullptr);
+      ~Telephone();
       Str getNumero() const;
       void setNumero(Str);
       Reseau * getReseau() const;

@@ -5,6 +5,14 @@
 Str Telephone::getNumero() const {return num;}
 void Telephone::setNumero(Str n) {num = n;}
 Telephone::Telephone(Str n, Reseau * reseau) : num(n), r(reseau) {}
+Telephone::~Telephone() {
+   for(
+      std::vector<Message *>::iterator it = messages.begin();
+      it != messages.end();
+      it++
+   ) delete *it;
+   messages.clear();
+}
 Reseau * Telephone::getReseau() const {return r;}
 int Telephone::getNbMessages() const {return messages.size();}
 void Telephone::textoter(Str a, Str txt) {
@@ -15,7 +23,7 @@ void Telephone::textoter(Str a, Str txt) {
    messages.push_back(local);
    
    // Stocker msg à distance
-   r->trouveTel(a).messages.push_back(new SMS(local));
+   r->trouveTel(a).messages.push_back(new SMS(local)); // Copie du SMS local
 }
 
 // Réseau //
