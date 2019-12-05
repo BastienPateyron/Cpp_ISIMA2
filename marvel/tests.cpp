@@ -104,7 +104,6 @@ TEST_CASE("Materiel") {
     REQUIRE ( "MarkI [5] en action" == log.str()); 
 } 
 
-/*
 TEST_CASE("Physique") {
     Physique force("force", 3);
     std::stringstream log;
@@ -118,6 +117,7 @@ TEST_CASE("Psychique") {
     tp.penser(log); 
     REQUIRE ( "telepathie [7]" == log.str()); 
 }
+/*
 
 TEST_CASE("Capacite1") {
     std::stringstream log;
