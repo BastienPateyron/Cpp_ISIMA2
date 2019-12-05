@@ -27,6 +27,8 @@ class Personne {
 };
 
 
+// Operateurs //
+bool operator==(Personne const & a, Personne const & b);
 
 
 

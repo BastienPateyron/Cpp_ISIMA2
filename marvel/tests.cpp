@@ -35,12 +35,12 @@ TEST_CASE("Inconnu1") {
     REQUIRE(Personne::INDETERMINE == Personne::INCONNU.getGenre());
 }  
 
-/*
 TEST_CASE("Inconnu2") {
     REQUIRE(   Personne::INCONNU  == Personne("Inconnu", "Inconnu", Personne::INDETERMINE));
     REQUIRE( !(Personne::INCONNU  == Personne("", "", Personne::HOMME)));
 }  
 
+/*
 TEST_CASE("Inconnu3") {
     std::stringstream ss;
     ss << Personne::INCONNU;

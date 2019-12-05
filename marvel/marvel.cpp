@@ -11,3 +11,14 @@ Str Personne::afficherGenre() const {
       default: return "-- Error Genre --";   
    }
 }
+
+
+
+// Operateurs //
+bool operator==(Personne const & a, Personne const & b) {
+   return (
+      a.getNom() == b.getNom() &&
+      a.getPrenom() == b.getPrenom() &&
+      a.getGenre() == b.getGenre()
+   );
+}
