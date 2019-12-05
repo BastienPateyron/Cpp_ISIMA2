@@ -29,6 +29,26 @@ class Personne {
 };
 
 
+class Super {
+   private:
+      Str nom;
+      bool anonyme;
+      Personne identite;
+
+   public:
+      Super(Str nom, Personne p = Personne::INCONNU) : nom(nom), anonyme(true), identite(p) {}
+      Str getNom() const {return nom;}
+      bool estAnonyme() const {return anonyme;}
+      Personne & getIdentite() {return identite;}
+
+};
+
+
+
+
+
+
+
 // Operateurs //
 bool operator==(Personne const & a, Personne const & b);
 std::ostream & operator<<(std::ostream & s, Personne const & p);
