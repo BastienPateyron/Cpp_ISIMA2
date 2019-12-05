@@ -63,11 +63,10 @@ TEST_CASE("Anonyme1") {
     REQUIRE ("Parker" == spider.getIdentite().getNom());
 }
 
-/*
 TEST_CASE("Anonyme2") {
     const char * msg = "identite anonyme";
     AnonymeException ie;
-    REQUIRE( strcmp(msg, ie.what() );
+    REQUIRE( strcmp(msg, ie.what() ) == 0);
 } 
 
 TEST_CASE("Anonyme3") {
@@ -77,6 +76,7 @@ TEST_CASE("Anonyme3") {
 
 }
 
+/*
 TEST_CASE("Super2") {
     Super venom("Venom", Personne("Peter", "Parker", Personne::HOMME));
     venom.enregistrer();

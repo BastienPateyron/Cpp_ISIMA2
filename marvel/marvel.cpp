@@ -14,6 +14,16 @@ Str Personne::afficherGenre() const {
 
 
 
+// Super //
+Personne & Super::getIdentite() {
+   if(anonyme) throw AnonymeException();
+   else        return identite;
+}
+
+
+
+
+
 // Operateurs //
 bool operator==(Personne const & a, Personne const & b) {
    return (

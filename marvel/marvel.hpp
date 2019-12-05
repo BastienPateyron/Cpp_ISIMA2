@@ -2,6 +2,7 @@
 #define marvel__hpp
 
 #include <iostream>
+#include <exception>
 
 
 typedef std::string Str;
@@ -39,7 +40,7 @@ class Super {
       Super(Str nom, Personne p = Personne::INCONNU) : nom(nom), anonyme(true), identite(p) {}
       Str getNom() const {return nom;}
       bool estAnonyme() const {return anonyme;}
-      Personne & getIdentite() {return identite;}
+      Personne & getIdentite();
       void enregistrer() {anonyme = false;}
 
 };
@@ -48,7 +49,11 @@ class Super {
 
 
 
-
+// Exception //
+class AnonymeException : public std::exception {
+   public:
+      const char * what() {return "identite anonyme";}
+};
 
 // Operateurs //
 bool operator==(Personne const & a, Personne const & b);
