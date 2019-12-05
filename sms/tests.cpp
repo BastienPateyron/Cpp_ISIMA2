@@ -149,7 +149,6 @@ TEST_CASE("SMS3") {
 
 }
 
-/*
 TEST_CASE("Media") {
 	Media * m1 = new Image;
 	CHECK( "[[image]]" == m1->afficher() );
@@ -162,6 +161,7 @@ TEST_CASE("Media") {
 	delete m3;
 }
 
+/*
 TEST_CASE("MMS1") {
 	MMS * m1 = new MMS("", "", "");
   CHECK("" == m1->afficher());

@@ -64,3 +64,16 @@ SMS::SMS(SMS const * sms) : Message(sms) {texte = sms->texte;}
 Str SMS::getTexte() const {return texte;}
 void SMS::setTexte(Str t) {texte = t;}
 Str SMS::afficher() const {return getTexte();}
+
+
+// Media //
+
+
+// Son //
+Str Son::afficher() const {return "[[son]]";}
+
+// Image //
+Str Image::afficher() const {return "[[image]]";}
+
+// Video //
+Str Video::afficher() const {return "[[video]]";}

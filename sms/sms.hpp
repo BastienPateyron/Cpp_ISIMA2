@@ -83,4 +83,31 @@ class SMS : public Message {
       virtual Str afficher() const;
 };
 
+
+
+class Media {
+   public:
+      virtual Str afficher() const = 0;
+};
+
+
+class Son : public Media {
+   public:
+      Str afficher() const;
+};
+
+
+class Image : public Media {
+   public:
+      Str afficher() const;
+};
+
+
+class Video : public Media {
+   public:
+      Str afficher() const;
+};
+
+
+
 #endif
