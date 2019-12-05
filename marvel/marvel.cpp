@@ -15,7 +15,10 @@ Str Personne::afficherGenre() const {
 
 
 // Super //
-Super::Super(Super const & super) {
+Super::Super(Super const & super) : 
+   nom(super.nom),
+   anonyme(super.anonyme),
+   identite(super.identite) {
    for(
       std::vector<Capacite *>::const_iterator it = super.capacites.begin();
       it != super.capacites.end(); it++

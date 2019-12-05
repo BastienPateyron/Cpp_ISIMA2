@@ -48,6 +48,7 @@ class Super {
       void setIdentite(Personne p) {identite = p; anonyme = true;}
       void ajouter(Capacite * c) {capacites.push_back(c);}
       int getNiveau() const;
+      void setNom(Str s) {nom = s;}
 
 };
 
