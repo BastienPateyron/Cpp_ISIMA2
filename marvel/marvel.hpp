@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <exception>
+#include <vector>
+#include <numeric>
+class Capacite;
 
 
 typedef std::string Str;
@@ -18,9 +21,6 @@ class Personne {
       Str afficherGenre() const;
       static Personne INCONNU;
 
-      // std::ostream & operator<<(std::ostream & s) {return afficher(s);}
-          
-
    private:
       Str nom;
       Str prenom;
@@ -35,15 +35,19 @@ class Super {
       Str nom;
       bool anonyme;
       Personne identite;
-      std::vector<Capacite> capacites;
+      std::vector<Capacite *> capacites;
 
    public:
       Super(Str nom, Personne p = Personne::INCONNU) : nom(nom), anonyme(true), identite(p) {}
+      Super(Super const &);
+      ~Super();
       Str getNom() const {return nom;}
       bool estAnonyme() const {return anonyme;}
       Personne & getIdentite();
       void enregistrer() {anonyme = false;}
       void setIdentite(Personne p) {identite = p; anonyme = true;}
+      void ajouter(Capacite * c) {capacites.push_back(c);}
+      int getNiveau() const;
 
 };
 
@@ -53,9 +57,11 @@ class Capacite {
    protected:
       Str nom;
       int niveau;
+      friend Super;
 
    public:
       Capacite(Str nom, int niveau) : nom(nom), niveau(niveau) {}
+      virtual Capacite * copy() const = 0;
       virtual ~Capacite() {};
       virtual void utiliser(std::ostream & s) const = 0; 
 };
@@ -64,6 +70,7 @@ class Capacite {
 class Materiel : public Capacite {
    public:
       Materiel(Str nom, int niveau) : Capacite(nom, niveau) {}
+      virtual Materiel * copy() const {return new Materiel(*this);}
       void actionner(std::ostream & s) const { utiliser(s);}
       virtual void utiliser(std::ostream & s) const {s << nom + " [" +  std::to_string(niveau) + "] en action";}
 };
@@ -71,6 +78,7 @@ class Materiel : public Capacite {
 class Physique : public Capacite {
    public:
       Physique(Str nom, int niveau) : Capacite(nom, niveau) {}
+      virtual Physique * copy() const {return new Physique(*this);}
       void exercer(std::ostream & s) const {utiliser(s);}
       virtual void utiliser(std::ostream & s) const {s << nom + " [" + std::to_string(niveau) + "]";}
 };
@@ -78,6 +86,7 @@ class Physique : public Capacite {
 class Psychique : public Capacite {
    public:
       Psychique(Str nom, int niveau) : Capacite(nom, niveau) {}
+      virtual Psychique * copy() const {return new Psychique(*this);}
       void penser(std::ostream & s) const {utiliser(s);}
       virtual void utiliser(std::ostream & s) const {s << nom + " [" + std::to_string(niveau) + "]";}
 };

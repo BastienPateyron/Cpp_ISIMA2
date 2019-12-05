@@ -15,11 +15,35 @@ Str Personne::afficherGenre() const {
 
 
 // Super //
+Super::Super(Super const & super) {
+   for(
+      std::vector<Capacite *>::const_iterator it = super.capacites.begin();
+      it != super.capacites.end(); it++
+   ) capacites.push_back( (*it)->copy() );
+}
+
+Super::~Super() {
+   for(
+      std::vector<Capacite *>::iterator it = capacites.begin();
+      it != capacites.end();
+      it++
+   ) delete *it;
+   capacites.clear();
+}
+
 Personne & Super::getIdentite() {
    if(anonyme) throw AnonymeException();
    else        return identite;
 }
 
+int Super::getNiveau() const {
+   return std::accumulate (
+      capacites.begin(),
+      capacites.end(),
+      0,
+      [] (int i, Capacite * c) { return i += c->niveau;}
+   );
+}
 
 
 
