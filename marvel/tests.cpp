@@ -140,10 +140,10 @@ TEST_CASE("Capacite2") {
     REQUIRE(100 == wolf.getNiveau());
 
     Super rien = wolf;
-    // wolf.ajouter(new Physique("force", 10));
+    wolf.ajouter(new Physique("force", 10));
 
-    // REQUIRE(110 == wolf.getNiveau());
-    // REQUIRE(100 == rien.getNiveau());
+    REQUIRE(110 == wolf.getNiveau());
+    REQUIRE(100 == rien.getNiveau());
 }
 
 /*
