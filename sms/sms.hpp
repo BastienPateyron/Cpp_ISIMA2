@@ -4,8 +4,10 @@
 #include <map>
 // #include <algorithm>
 #include <numeric>
+#include <vector>
 
 class Reseau;
+class Message;
 
 typedef std::string Str; // Adieu std::string
 
@@ -14,7 +16,7 @@ class Telephone {
    private:
       Str num;
       Reseau * r;
-      std::vector<Message> messages;
+      std::vector<Message *> messages;
 
    public:
       Telephone(Str = "", Reseau * r = nullptr);
