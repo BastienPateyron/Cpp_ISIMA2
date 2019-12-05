@@ -19,7 +19,7 @@ Super::Super(Super const & super) {
    for(
       std::vector<Capacite *>::const_iterator it = super.capacites.begin();
       it != super.capacites.end(); it++
-   ) capacites.push_back( (*it)->copy() );
+   ) capacites.push_back( (*it)->clone() );
 }
 
 Super::~Super() {

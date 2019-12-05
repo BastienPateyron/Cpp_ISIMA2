@@ -61,7 +61,7 @@ class Capacite {
 
    public:
       Capacite(Str nom, int niveau) : nom(nom), niveau(niveau) {}
-      virtual Capacite * copy() const = 0;
+      virtual Capacite * clone() const = 0;
       virtual ~Capacite() {};
       virtual void utiliser(std::ostream & s) const = 0; 
 };
@@ -70,7 +70,7 @@ class Capacite {
 class Materiel : public Capacite {
    public:
       Materiel(Str nom, int niveau) : Capacite(nom, niveau) {}
-      virtual Materiel * copy() const {return new Materiel(*this);}
+      virtual Materiel * clone() const {return new Materiel(*this);}
       void actionner(std::ostream & s) const { utiliser(s);}
       virtual void utiliser(std::ostream & s) const {s << nom + " [" +  std::to_string(niveau) + "] en action";}
 };
@@ -78,7 +78,7 @@ class Materiel : public Capacite {
 class Physique : public Capacite {
    public:
       Physique(Str nom, int niveau) : Capacite(nom, niveau) {}
-      virtual Physique * copy() const {return new Physique(*this);}
+      virtual Physique * clone() const {return new Physique(*this);}
       void exercer(std::ostream & s) const {utiliser(s);}
       virtual void utiliser(std::ostream & s) const {s << nom + " [" + std::to_string(niveau) + "]";}
 };
@@ -86,7 +86,7 @@ class Physique : public Capacite {
 class Psychique : public Capacite {
    public:
       Psychique(Str nom, int niveau) : Capacite(nom, niveau) {}
-      virtual Psychique * copy() const {return new Psychique(*this);}
+      virtual Psychique * clone() const {return new Psychique(*this);}
       void penser(std::ostream & s) const {utiliser(s);}
       virtual void utiliser(std::ostream & s) const {s << nom + " [" + std::to_string(niveau) + "]";}
 };
