@@ -29,13 +29,13 @@ TEST_CASE("Personne3") {
     REQUIRE("Wanda Maximof [FEMME]" == ss.str() );
 } 
 
-/*
 TEST_CASE("Inconnu1") {
     REQUIRE("Inconnu"             == Personne::INCONNU.getNom());
     REQUIRE("Inconnu"             == Personne::INCONNU.getPrenom());
     REQUIRE(Personne::INDETERMINE == Personne::INCONNU.getGenre());
 }  
 
+/*
 TEST_CASE("Inconnu2") {
     REQUIRE(   Personne::INCONNU  == Personne("Inconnu", "Inconnu", Personne::INDETERMINE));
     REQUIRE( !(Personne::INCONNU  == Personne("", "", Personne::HOMME)));
