@@ -8,6 +8,7 @@
 
 class Reseau;
 class Message;
+class Media;
 
 typedef std::string Str; // Adieu std::string
 
@@ -84,9 +85,22 @@ class SMS : public Message {
 };
 
 
+class MMS : public SMS {
+   private:
+      std::vector<Media *> medias;
+
+   public:
+      MMS(Str = "", Str = "", Str = "");
+      ~MMS();
+      Str afficher() const;
+      void joindre(Media *);
+};
+
+
 
 class Media {
    public:
+   virtual ~Media();
       virtual Str afficher() const = 0;
 };
 

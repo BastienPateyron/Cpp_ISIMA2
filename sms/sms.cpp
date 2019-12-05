@@ -66,8 +66,30 @@ void SMS::setTexte(Str t) {texte = t;}
 Str SMS::afficher() const {return getTexte();}
 
 
-// Media //
+// MMS //
+MMS::MMS(Str de , Str a, Str date) : SMS(de, a, date) {}
+MMS::~MMS() {
+   for(
+      std::vector<Media *>::iterator it = medias.begin();
+      it != medias.end();
+      it++
+   ) delete *it;
 
+   medias.clear();
+}
+Str MMS::afficher() const {
+   return std::accumulate(
+      medias.begin(),
+      medias.end(),
+      getTexte(),
+      [] (Str s, Media * m) { return s += m->afficher();}
+   );
+}
+void MMS::joindre(Media * m) {medias.push_back(m);}
+
+
+// Media //
+Media::~Media() {}
 
 // Son //
 Str Son::afficher() const {return "[[son]]";}
