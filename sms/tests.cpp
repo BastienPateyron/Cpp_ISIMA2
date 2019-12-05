@@ -119,7 +119,6 @@ TEST_CASE("Telephone4") {
   CHECK( 0 == t.getNbMessages());
 }
 
-/*
 TEST_CASE("SMS2") {
 	MON_RESEAU;
 
@@ -137,6 +136,7 @@ TEST_CASE("SMS2") {
 
 }
 
+/*
 TEST_CASE("SMS3") {
 	MON_RESEAU;
 

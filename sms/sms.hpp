@@ -24,6 +24,7 @@ class Telephone {
       void setNumero(Str);
       Reseau * getReseau() const;
       int getNbMessages() const;
+      void textoter(Str, Str);
 };
 
 
@@ -60,6 +61,7 @@ class Message {
 
    public:
       Message(Str = "", Str = "", Str = "");
+      Message(Message const *);
       virtual ~Message();
       virtual Str afficher() const = 0;
       int getId() const;
@@ -73,7 +75,8 @@ class SMS : public Message {
       Str texte;
 
    public:
-      SMS(Str, Str, Str);
+      SMS(Str = "", Str = "", Str = "");
+      SMS(SMS const *);
       Str getTexte() const;
       void setTexte(Str);
       virtual Str afficher() const;
