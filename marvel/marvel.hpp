@@ -63,7 +63,9 @@ class Capacite {
       Capacite(Str nom, int niveau) : nom(nom), niveau(niveau) {}
       virtual Capacite * clone() const = 0;
       virtual ~Capacite() {};
-      virtual void utiliser(std::ostream & s) const = 0; 
+      virtual void utiliser(std::ostream & s) const = 0;
+      Str getNom() const {return nom;}
+      int getNiveau() const {return niveau;}  
 };
 
 
