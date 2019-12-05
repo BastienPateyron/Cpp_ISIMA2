@@ -178,7 +178,6 @@ TEST_CASE("Super3") {
     REQUIRE ( 10 == warm.getNiveau());
 }
 
-/*
 TEST_CASE("Equipe") {
     Equipe vengeurs("vengeurs");
     REQUIRE ( 0 == vengeurs.getNombre());
@@ -216,4 +215,5 @@ TEST_CASE("Equipe") {
     REQUIRE ( 880 == vengeurs.getNiveau());
     // Il manque Thor Odinsen et Steve Rogers pour l'équipe originelle :-)
 }
+/*
 */

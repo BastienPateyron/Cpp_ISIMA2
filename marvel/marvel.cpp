@@ -50,6 +50,24 @@ int Super::getNiveau() const {
 
 
 
+// Equipe //
+int Equipe::getNiveau() const {
+   return std::accumulate(
+      membres.begin(), membres.end(),
+      0,
+      [] (int i, Super * s) {return i += s->getNiveau();}
+   );
+}
+
+Equipe::~Equipe() {
+   for(
+      std::vector<Super *>::iterator it = membres.begin();
+      it != membres.end();
+      it++
+   ) delete *it;
+   membres.clear();
+}
+
 
 // Operateurs //
 bool operator==(Personne const & a, Personne const & b) {

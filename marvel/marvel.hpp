@@ -96,7 +96,19 @@ class Psychique : public Capacite {
 
 
 
+class Equipe {
+   private:
+      Str nom;
+      std::vector<Super *> membres;
 
+   public:
+      Equipe(Str nom) : nom(nom) {}
+      ~Equipe();
+      void ajouter(Super * s) {membres.push_back(s);}
+      int getNombre() const {return membres.size();}
+      int getNiveau() const;
+
+};
 
 
 
