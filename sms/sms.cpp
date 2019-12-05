@@ -58,7 +58,6 @@ Telephone & Reseau::trouveTel(Str num) {
 
 // Exception //
 MauvaisNumero::MauvaisNumero() : std::invalid_argument("mauvais numero") {}
-// const char * MauvaisNumero::what() { return "mauvais numero"; }
 
 
 // Message //
@@ -68,6 +67,8 @@ Message::Message(Message const * m) : Message(m->de, m->a, m->date) {}
 Message::~Message() {};
 int Message::getId() const {return id;}
 int Message::getCle()  {return Message::cle;}
+Str Message::getDe() const {return de;}   
+Str Message::getA() const  {return a;}
 
 
 // SMS //
@@ -85,7 +86,7 @@ MMS::MMS(MMS const * mms) {
       std::vector<Media *>::const_iterator it = mms->medias.begin();
       it != mms->medias.end();
       it++
-   ) medias.push_back(*it);
+   ) medias.push_back( (*it)->copy() );
 }
 
 MMS::~MMS() {
@@ -116,9 +117,13 @@ Media::~Media() {}
 
 // Son //
 Str Son::afficher() const {return "[[son]]";}
+Son * Son::copy() const {return new Son(*this);}
+
 
 // Image //
 Str Image::afficher() const {return "[[image]]";}
+Image * Image::copy() const {return new Image(*this);}
 
 // Video //
 Str Video::afficher() const {return "[[video]]";}
+Video * Video::copy() const {return new Video(*this);}

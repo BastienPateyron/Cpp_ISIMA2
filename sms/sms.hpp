@@ -71,6 +71,8 @@ class Message {
       virtual Str afficher() const = 0;
       int getId() const;
       static int getCle();
+      Str getDe() const;   
+      Str getA() const;
 
 };
 
@@ -106,24 +108,28 @@ class Media {
    public:
    virtual ~Media();
       virtual Str afficher() const = 0;
+      virtual Media * copy() const = 0;
 };
 
 
 class Son : public Media {
    public:
       Str afficher() const;
+      virtual Son * copy() const;
 };
 
 
 class Image : public Media {
    public:
       Str afficher() const;
+      virtual Image * copy() const;
 };
 
 
 class Video : public Media {
    public:
       Str afficher() const;
+      virtual Video * copy() const;
 };
 
 

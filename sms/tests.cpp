@@ -193,7 +193,6 @@ TEST_CASE("MMS2") {
     // espace memoire correctement libere ?    
 }
 
-/*
 TEST_CASE("MMS3") {
 	MON_RESEAU;
 
@@ -215,4 +214,5 @@ TEST_CASE("MMS3") {
   CHECK(1 ==  a->getNbMessages());
 
 } 
+/*
 */
