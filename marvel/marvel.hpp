@@ -40,6 +40,7 @@ class Super {
       Str getNom() const {return nom;}
       bool estAnonyme() const {return anonyme;}
       Personne & getIdentite() {return identite;}
+      void enregistrer() {anonyme = false;}
 
 };
 
