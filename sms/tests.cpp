@@ -136,7 +136,6 @@ TEST_CASE("SMS2") {
 
 }
 
-/*
 TEST_CASE("SMS3") {
 	MON_RESEAU;
 
@@ -150,6 +149,7 @@ TEST_CASE("SMS3") {
 
 }
 
+/*
 TEST_CASE("Media") {
 	Media * m1 = new Image;
 	CHECK( "[[image]]" == m1->afficher() );

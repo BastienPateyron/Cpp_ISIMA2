@@ -23,7 +23,8 @@ void Telephone::textoter(Str a, Str txt) {
    messages.push_back(local);
    
    // Stocker msg à distance
-   r->trouveTel(a).messages.push_back(new SMS(local)); // Copie du SMS local
+   try {r->trouveTel(a).messages.push_back(new SMS(local));} // Copie du SMS local
+   catch(MauvaisNumero const & e) {}
 }
 
 // Réseau //
