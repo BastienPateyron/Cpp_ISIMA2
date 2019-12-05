@@ -47,15 +47,18 @@ class MauvaisNumero : public std::invalid_argument {
 
 class Message {
    private:
-
       Str de;
       Str a;
       Str date;
+      int id;
+      static int cle;
 
    public:
       Message(Str = "", Str = "", Str = "");
-      ~Message();
+      virtual ~Message();
       virtual Str afficher() const = 0;
+      int getId() const;
+      static int getCle();
 
 };
 
@@ -65,7 +68,7 @@ class SMS : public Message {
       Str texte;
 
    public:
-      SMS(Str = "", Str = "", Str = "");
+      SMS(Str, Str, Str);
       Str getTexte() const;
       void setTexte(Str);
       virtual Str afficher() const;

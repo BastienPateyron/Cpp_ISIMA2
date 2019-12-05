@@ -30,8 +30,11 @@ MauvaisNumero::MauvaisNumero() : std::invalid_argument("mauvais numero") {}
 
 
 // Message //
-Message::Message(Str de, Str a, Str date) : de(de), a(a), date(date) {}
+int Message::cle = 0;
+Message::Message(Str de, Str a, Str date) : de(de), a(a), date(date), id(Message::cle++) {}
 Message::~Message() {};
+int Message::getId() const {return id;}
+int Message::getCle()  {return Message::cle;}
 
 // SMS //
 SMS::SMS(Str de , Str a, Str date) : Message(de, a, date) {}

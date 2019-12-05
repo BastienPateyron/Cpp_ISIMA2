@@ -101,7 +101,6 @@ TEST_CASE("Message0") {
    // si ca compile, c'est perdu ...
 } */
 
-/*
 TEST_CASE("Message1") {
  int nb = Message::getCle();
  Message * sms1 = new SMS("", "", "");
@@ -114,6 +113,7 @@ TEST_CASE("Message1") {
  delete sms1;
 }
 
+/*
 TEST_CASE("Telephone4") {
 	const Telephone t;
 
