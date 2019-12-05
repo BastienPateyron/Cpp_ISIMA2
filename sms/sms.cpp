@@ -6,6 +6,7 @@ Str Telephone::getNumero() const {return num;}
 void Telephone::setNumero(Str n) {num = n;}
 Telephone::Telephone(Str n, Reseau * reseau) : num(n), r(reseau) {}
 Reseau * Telephone::getReseau() const {return r;}
+int Telephone::getNbMessages() const {return messages.size();}
 
 
 // Réseau //
