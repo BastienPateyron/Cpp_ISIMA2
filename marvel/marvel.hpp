@@ -42,6 +42,7 @@ class Super {
       bool estAnonyme() const {return anonyme;}
       Personne & getIdentite();
       void enregistrer() {anonyme = false;}
+      void setIdentite(Personne p) {identite = p; anonyme = true;}
 
 };
 
