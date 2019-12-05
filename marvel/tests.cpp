@@ -97,7 +97,6 @@ TEST_CASE("Capacite0") {
 } 
 */
 
-/*
 TEST_CASE("Materiel") {
     Materiel armure("MarkI", 5);
     std::stringstream log;
@@ -105,6 +104,7 @@ TEST_CASE("Materiel") {
     REQUIRE ( "MarkI [5] en action" == log.str()); 
 } 
 
+/*
 TEST_CASE("Physique") {
     Physique force("force", 3);
     std::stringstream log;

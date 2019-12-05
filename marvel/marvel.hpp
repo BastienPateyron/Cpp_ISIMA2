@@ -48,6 +48,43 @@ class Super {
 
 
 
+class Capacite {
+   protected:
+      Str nom;
+      int niveau;
+
+   public:
+      Capacite(Str nom, int niveau) : nom(nom), niveau(niveau) {}
+      virtual ~Capacite() {};
+      virtual void utiliser(std::ostream & s) const = 0; 
+};
+
+
+class Materiel : public Capacite {
+   public:
+      Materiel(Str nom, int niveau) : Capacite(nom, niveau) {}
+      void actionner(std::ostream & s) const { utiliser(s);}
+      virtual void utiliser(std::ostream & s) const {s << nom + " [" +  std::to_string(niveau) + "] en action";}
+};
+
+class Physique : public Capacite {
+   public:
+      Physique(Str nom, int niveau) : Capacite(nom, niveau) {}
+      void exercer(std::ostream & s) const {utiliser(s);}
+      virtual void utiliser(std::ostream & s) const {s << nom + " [" + std::to_string(niveau) + "]";}
+};
+
+class Psychique : public Capacite {
+   public:
+      Psychique(Str nom, int niveau) : Capacite(nom, niveau) {}
+      void penser(std::ostream & s) const {utiliser(s);}
+      virtual void utiliser(std::ostream & s) const {s << nom + " [" + std::to_string(niveau) + "]";}
+};
+
+
+
+
+
 
 
 // Exception //
