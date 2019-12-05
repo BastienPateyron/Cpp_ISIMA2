@@ -117,7 +117,6 @@ TEST_CASE("Psychique") {
     tp.penser(log); 
     REQUIRE ( "telepathie [7]" == log.str()); 
 }
-/*
 
 TEST_CASE("Capacite1") {
     std::stringstream log;
@@ -133,6 +132,7 @@ TEST_CASE("Capacite1") {
     REQUIRE ( "telekinesie [12]" == log.str()); 
     delete capa;
 } 
+/*
 
 TEST_CASE("Capacite2") {
     Super wolf("wolferine", Personne("James", "Howlett")); // Le vrai nom de Logan
