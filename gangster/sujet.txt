@@ -1,0 +1,74 @@
+Pour lire ce fichier correctement sous VS Code, activer le Word Wrap dans le menu [View]
+
+MISE EN GARDE 1 : le compte de M. Yon a été piraté par la liste BDE GangsterZZ. Toutefois pour éviter une mauvaise note aux membres de notre équipe une fois qu'elle aura été complètement révélée, nous avons juste changé le thème de l'examen...
+
+MISE EN GARDE 2 : inscrivez vos nom/prenom dans le fichier gangster.hpp
+
+------------------
+Voici votre examen de C++ ZZ2. Lisez tout le sujet avant de commencer : un certain nombre de tests ont été écrits pour être indépendants ou avec peu d'influence sur les autres.
+
+A la fin de l'examen, vous devez rendre un programme qui compile.
+
+Pour plus de simplicité, vous DEVEZ utiliser trois fichiers en plus de main.cpp : tests.cpp, gangster.hpp et gangster.cpp. Ne changez pas la casse et n'ajoutez pas de fichiers, cela casserait la chaine de compilation et engendrerait une note nulle.
+
+Toutes les déclarations seront dans l'entête, les définitions/implémentations seront dans le cpp.
+
+La ligne de compilation est la suivante :
+make
+
+Si besoin, vous pouvez faire un make clean. La première compilation de la bibliothèque Catch est un peu longue.
+
+Ne jamais recommenter un test qui a réussi. Tous les tests décommentés doivent compiler dans le même temps (sauf mention contraire).
+
+Pour garder une trace exécutable de votre programme sans stress supplémentaire :
+* Vous pouvez utiliser GIT. Un rappel des commandes GIT est fait à la fin de l'énoncé. La correction s'interessera uniquement à la version disponible. 
+* Si vous préférez faire des copies de répertoires, tous les sous-répertoires de votre $HOME sont analysés et seul le code menant à une meilleure note que les autres est gardé.
+
+------------------
+
+Créer un classe Personne qui représente une personne avec un nom et les accesseurs qui vont bien.
+[Personne1, Personne2]
+
+Une instance particulière de Personne est à créer : INCONNU. Elle sera utilisée plus tard
+
+Créer une classe Gangster avec deux attributs entiers : un identifiant et une influence. Pour un gangster de base, l'influence est de 1. L'identifiant est calculé automatiquement à chaque fois qu'un objet est créé en utilisant un attribut de classe non mentionné dans les tests. [Gangster]
+
+Créer une classe Chef, un chef est un gangster qui gère une équipe de ... gangsters.
+La méthode commande() permet d'ajouter un membre à l'équipe. L'influence d'un chef se mesure à celle de son équipe avec un bonus. En clair, <mode F4>pour un chef avec des subordonnés, l'influence du chef est la somme des influences des subordonnés + 10 <fin mode f4>[Chef]
+
+Créer une classe InconnuException avec un message spécifique [Inconnu]
+
+Cette exception est levée quand on essaie de connaitre la personne qui se cache derrière un gangster dont l'identité n'est pas connue [Exception]
+
+On dote la classe Personne d'une méthode equals() pour savoir si deux personnes portent le même nom [Revelation]
+
+On veut maintenant comparer deux gangsters : un gangster sera dit "inférieur à un autre" si le premier à une influence plus petite que l'autre ou, à influence identique,  si le gangster est plus jeune (c'est-à-dire créé après l'autre) [Comparaison]
+
+Vous allez maintenant créer une classe Famille qui est un ensemble de Gangsters.
+
+On veut également pouvoir lister la famille en listant les membres dont l'identité est connue par ordre alphabétique [Famille 1A]. Cette liste sera naturellement disponible avec << [Famille 1B]. Du code est laissé en commentaire pour vous aider à déboguer le cas échéant.
+
+On veut également pouvoir avoir une liste ordonnée du gangster le plus influent au moins influent [Famille 2]. Pour cela, on propose de créer un foncteur de comparaison entre deux gangsters connus par adresse si nécessaire. [Foncteur]
+
+Si vous lancez valgrind, vous devriez faire quelque chose de plus...
+
+-------------------- Commandes GIT
+
+Préparation du compte (1 fois, au début)
+
+git config --global user.name "un_nom"
+git config --global user.email "un_mail"
+
+Préparation du répertoire
+
+git init
+
+A chaque nouveau fichier
+git add fichier
+git add *
+
+Sauvegarder / Commiter
+git commit -am "commentaire"
+
+git log permet d'avoir la liste des sauvegardes avec un numéro de hachage
+git checkout numero_de_hash  OU git revert numero_de_hash
